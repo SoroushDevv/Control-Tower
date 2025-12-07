@@ -1,0 +1,91 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+/* Active Tab */
+
+  .ct-tab {
+    @apply px-4 py-2 rounded-md text-sm font-medium transition-all;
+  }
+
+  .ct-tab-active {
+    @apply text-white bg-gradient-to-r from-ct-accent-blue to-ct-accent-indigo;
+  }
+
+  .ct-tab-inactive {
+    @apply text-ct-gray-700 dark:text-ct-gray-300 hover:bg-ct-gray-100 dark:hover:bg-ct-midnight-700;
+  }
+
+
+  /* =========================================
+     🔵 2) فوکس اینپوت‌ (Focus Input)
+  ============================================ */
+  .ct-input {
+    @apply border border-ct-gray-300 dark:border-ct-midnight-700
+           bg-white dark:bg-ct-midnight-800
+           rounded-md px-3 py-2 w-full
+           focus:outline-none transition-all;
+  }
+
+  .ct-input:focus {
+    @apply shadow-ct-focus border-ct-accent-blue;
+  }
+
+
+  /* =========================================
+     🔵 3) دکمه‌های Primary
+  ============================================ */
+  .ct-btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all text-white;
+  }
+
+  .ct-btn-primary {
+    @apply bg-gradient-to-r from-ct-midnight-600 to-ct-accent-blue;
+  }
+
+  .ct-btn-primary:hover {
+    @apply bg-gradient-to-r from-ct-midnight-700 to-ct-accent-indigo;
+  }
+
+
+  /* =========================================
+     🔵 4) دکمه‌های Secondary
+  ============================================ */
+  .ct-btn-secondary {
+    @apply bg-ct-gray-100 dark:bg-ct-midnight-700 text-ct-gray-800 dark:text-ct-gray-200;
+  }
+
+  .ct-btn-secondary:hover {
+    @apply bg-ct-gray-200 dark:bg-ct-midnight-600;
+  }
+
+
+  /* =========================================
+     🔵 5) کارت‌ها و کانتینرها
+  ============================================ */
+  .ct-card {
+    @apply p-4 rounded-lg border border-ct-gray-200 
+           dark:border-ct-midnight-700 
+           bg-white dark:bg-ct-midnight-800;
+  }
+
+  .ct-card-hover:hover {
+    @apply shadow-md dark:shadow-lg;
+  }
+
+
+  /* =========================================
+     🔵 6) عنوان‌ها
+  ============================================ */
+  .ct-title {
+    @apply text-lg font-semibold text-ct-gray-900 dark:text-white;
+  }
+
+  .ct-subtitle {
+    @apply text-sm text-ct-gray-600 dark:text-ct-gray-300;
+  }
+
+}
