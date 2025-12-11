@@ -10,6 +10,7 @@ export default function Comments () {
 
 
 
-    return {
-    }
+     return(
+        <div ></div>
+    )
 }

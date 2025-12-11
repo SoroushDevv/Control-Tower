@@ -10,6 +10,7 @@ export default function Blogs () {
 
 
 
-    return {
-    }
+      return(
+        <div ></div>
+    )
 }

@@ -1,75 +1,96 @@
-export default function Login() {
+import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { Link } from "react-router-dom";
+
+import Input from "./../../Components/UI/Input/Input";
+import Button from "./../../Components/UI/Button/Button";
+import Checkbox from "./../UI/Checkbox/Checkbox";
+
+import { User, Lock } from "lucide-react";
+
+const schema = yup.object({
+  username: yup
+    .string()
+    .required("نام کاربری الزامی است")
+    .min(3, "حداقل ۳ کاراکتر")
+    .max(20, "حداکثر ۲۰ کاراکتر")
+    .matches(/^[a-zA-Z0-9_]+$/, "فقط حروف و عدد انگلیسی مجاز است"),
+
+  password: yup
+    .string()
+    .required("رمز عبور الزامی است")
+    .min(6, "حداقل ۶ کاراکتر")
+    .max(12, "حداکثر ۱۲ کاراکتر")
+    .matches(/[A-Z]/, "حداقل یک حرف بزرگ داشته باشد")
+    .matches(/[a-z]/, "حداقل یک حرف کوچک داشته باشد")
+    .matches(/[0-9]/, "حداقل یک عدد داشته باشد")
+    .matches(/[!@#$%^&*()_+=-]/, "حداقل یک کاراکتر خاص داشته باشد")
+    .matches(/^[A-Za-z0-9!@#$%^&*()_+=-]+$/, "فقط کاراکترهای انگلیسی مجاز است"),
+});
+
+function Login() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+    defaultValues: { username: "", password: "" },
+  });
+
+  const onSubmit = (data) => {
+    console.log("Form submitted:", data);
+  };
+
+  const usernameValue = watch("username");
+  const passwordValue = watch("password");
+
   return (
-    <>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            alt="Your Company"
-            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-            className="mx-auto h-10 w-auto"
-          />
-          <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
-        </div>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="h-full flex flex-col justify-center items-start gap-4 p-10 rtl"
+    >
+      <p className="w-full text-2xl font-extrabold text-center mb-3">خوش آمدید</p>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
-            <div>
-              <label htmlFor="email" className="block text-sm/6 font-medium text-gray-100">
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
-                />
-              </div>
-            </div>
+      <div className="w-full relative">
 
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm/6 font-medium text-gray-100">
-                  Password
-                </label>
-                <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-300">
-                    Forgot password?
-                  </a>
-                </div>
-              </div>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
-                  className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-              >
-                Sign in
-              </button>
-            </div>
-          </form>
-
-          <p className="mt-10 text-center text-sm/6 text-gray-400">
-            Not a member?{' '}
-            <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-300">
-              Start a 14 day free trial
-            </a>
-          </p>
-        </div>
+        <Input
+          type="text"
+          icon={User}
+          placeholder="نام کاربری..."
+          {...register("username")}
+          error={errors.username}
+          value={usernameValue.trim()}
+          maxLength={20}
+        />
       </div>
-    </>
-  )
+
+      <div className="w-full relative">
+        <Input
+          type="password"
+          icon={Lock}
+          placeholder="رمز عبور..."
+          {...register("password")}
+          error={errors.password}
+          value={passwordValue}
+        />
+      </div>
+
+      <div className="w-full flex justify-between items-center">
+        <Link to="#" className="text-inherit">فراموشی رمز؟</Link>
+        <Checkbox label="مرا به خاطر بسپار" />
+      </div>
+
+      <div className="mt-3 w-full flex justify-center items-center">
+        <Button className="bg-primary-active-light" type="submit">ورود</Button>
+      </div>
+    </form>
+  );
 }
+
+
+export default Login;

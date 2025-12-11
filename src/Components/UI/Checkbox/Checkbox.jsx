@@ -10,6 +10,8 @@ const Checkbox = ({ label, checked, onChange, disabled = false, color = "blue" }
 
   return (
     <label className={`inline-flex items-center gap-2 ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}>
+
+      {label && <span>{label}</span>}
       <input
         type="checkbox"
         checked={checked}
@@ -17,7 +19,6 @@ const Checkbox = ({ label, checked, onChange, disabled = false, color = "blue" }
         disabled={disabled}
         className={`form-checkbox ${colors[color] || colors.blue} h-5 w-5`}
       />
-      {label && <span>{label}</span>}
     </label>
   );
 };

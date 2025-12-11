@@ -10,6 +10,7 @@ export default function Tickets () {
 
 
 
-    return {
-    }
+    return(
+        <div ></div>
+    )
 }

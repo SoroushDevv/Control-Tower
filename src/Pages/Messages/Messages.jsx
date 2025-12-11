@@ -10,6 +10,7 @@ export default function Messages () {
 
 
 
-    return {
-    }
+      return(
+        <div ></div>
+    )
 }
