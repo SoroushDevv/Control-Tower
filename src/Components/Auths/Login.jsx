@@ -52,7 +52,7 @@ function Login() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="h-full flex flex-col justify-center items-start gap-4 p-10 rtl"
+      className="h-full flex flex-col justify-center items-start gap-4  p-10 rtl"
     >
       <p className="w-full text-2xl font-extrabold text-center mb-3">خوش آمدید</p>
 
@@ -85,9 +85,9 @@ function Login() {
         <Checkbox label="مرا به خاطر بسپار" />
       </div>
 
-      <div className="mt-3 w-full flex justify-center items-center">
-        <Button className="bg-primary-active-light" type="submit">ورود</Button>
-      </div>
+        <Button className="w-full bg-primary-active-light flex justify-center items-center" type="submit">
+          ورود
+        </Button>
     </form>
   );
 }

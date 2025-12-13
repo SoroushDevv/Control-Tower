@@ -1,91 +1,202 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
 
-/* Active Tab */
+  /* =========================================
+     🔵 1) Tabs
+  ============================================ */
 
   .ct-tab {
-    @apply px-4 py-2 rounded-md text-sm font-medium transition-all;
+    @apply px-4 py-2 rounded-lg text-sm font-medium
+           transition-all duration-200
+           text-light-text-secondary
+           dark:text-dark-text-secondary;
+  }
+
+  .ct-tab:hover {
+    @apply bg-light-bg-surfaceAlt
+           dark:bg-dark-bg-surfaceAlt cursor-pointer;
   }
 
   .ct-tab-active {
-    @apply text-white bg-gradient-to-r from-ct-accent-blue to-ct-accent-indigo;
+    @apply px-4 py-2 rounded-lg text-sm font-medium text-light-text-inverted
+           dark:text-dark-text-inverted
+           bg-primary-active-light
+           dark:bg-primary-active-dark
+           shadow-surface-light
+           dark:shadow-surface-dark cursor-pointer;
   }
 
-  .ct-tab-inactive {
-    @apply text-ct-gray-700 dark:text-ct-gray-300 hover:bg-ct-gray-100 dark:hover:bg-ct-midnight-700;
+  .ct-tab-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
   }
 
 
   /* =========================================
-     🔵 2) فوکس اینپوت‌ (Focus Input)
+     🔵 2) Input
   ============================================ */
+
   .ct-input {
-    @apply border border-ct-gray-300 dark:border-ct-midnight-700
-           bg-white dark:bg-ct-midnight-800
-           rounded-md px-3 py-2 w-full
-           focus:outline-none transition-all;
+    @apply w-full px-3 py-2 rounded-md
+           bg-light-bg-surface
+           dark:bg-dark-bg-surface
+           border border-light-border
+           dark:border-dark-border
+           text-light-text-primary
+           dark:text-dark-text-primary
+           transition-all
+           focus:outline-none;
+  }
+
+  .ct-input::placeholder {
+    @apply text-light-text-muted
+           dark:text-dark-text-muted;
   }
 
   .ct-input:focus {
-    @apply shadow-ct-focus border-ct-accent-blue;
+    @apply border-light-border-focus
+           dark:border-dark-border-focus
+           shadow-sm;
+  }
+
+  .ct-input:disabled {
+    @apply bg-light-bg-surfaceAlt
+           dark:bg-dark-bg-surfaceAlt
+           text-light-text-muted
+           dark:text-dark-text-muted
+           cursor-not-allowed opacity-60;
   }
 
 
   /* =========================================
-     🔵 3) دکمه‌های Primary
+     🔵 3) Buttons – Base
   ============================================ */
+
   .ct-btn {
-    @apply px-4 py-2 rounded-md font-medium transition-all text-white;
+    @apply inline-flex items-center justify-center
+           px-4 py-2 rounded-md font-medium
+           transition-all duration-200;
   }
 
+  .ct-btn:disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+
+
+  /* =========================================
+     🔵 4) Button – Primary
+  ============================================ */
+
   .ct-btn-primary {
-    @apply bg-gradient-to-r from-ct-midnight-600 to-ct-accent-blue;
+    @apply text-light-text-inverted
+           dark:text-dark-text-inverted
+           bg-primary-active-light
+           dark:bg-primary-active-dark;
   }
 
   .ct-btn-primary:hover {
-    @apply bg-gradient-to-r from-ct-midnight-700 to-ct-accent-indigo;
+    @apply brightness-110;
+  }
+
+  .ct-btn-primary:active {
+    @apply scale-[0.97];
   }
 
 
   /* =========================================
-     🔵 4) دکمه‌های Secondary
+     🔵 5) Button – Secondary
   ============================================ */
+
   .ct-btn-secondary {
-    @apply bg-ct-gray-100 dark:bg-ct-midnight-700 text-ct-gray-800 dark:text-ct-gray-200;
+    @apply bg-light-bg-surfaceAlt
+           dark:bg-dark-bg-surfaceAlt
+           text-light-text-primary
+           dark:text-dark-text-primary
+           border border-light-border
+           dark:border-dark-border;
   }
 
   .ct-btn-secondary:hover {
-    @apply bg-ct-gray-200 dark:bg-ct-midnight-600;
+    @apply bg-light-primary-subtle
+           dark:bg-dark-primary-subtle;
+  }
+
+  .ct-btn-secondary:active {
+    @apply scale-[0.97];
   }
 
 
   /* =========================================
-     🔵 5) کارت‌ها و کانتینرها
+     🔵 6) Cards
   ============================================ */
+
   .ct-card {
-    @apply p-4 rounded-lg border border-ct-gray-200 
-           dark:border-ct-midnight-700 
-           bg-white dark:bg-ct-midnight-800;
+    @apply p-4 rounded-xl
+           bg-light-bg-surface
+           dark:bg-dark-bg-surface
+           border border-light-border
+           dark:border-dark-border
+           transition-all;
   }
 
   .ct-card-hover:hover {
-    @apply shadow-md dark:shadow-lg;
+    @apply shadow-surface-light
+           dark:shadow-surface-dark;
   }
 
 
   /* =========================================
-     🔵 6) عنوان‌ها
+     🔵 7) Titles
   ============================================ */
+
   .ct-title {
-    @apply text-lg font-semibold text-ct-gray-900 dark:text-white;
+    @apply text-lg font-semibold
+           text-light-text-primary
+           dark:text-dark-text-primary;
   }
 
   .ct-subtitle {
-    @apply text-sm text-ct-gray-600 dark:text-ct-gray-300;
+    @apply text-sm
+           text-light-text-secondary
+           dark:text-dark-text-secondary;
+  }
+
+
+  /* =========================================
+     🔵 8) Animated Brand Tab
+  ============================================ */
+
+  .ct-tab-brand {
+    @apply flex gap-2 px-4 py-2 rounded-lg font-medium
+           text-light-text-inverted
+           dark:text-dark-text-inverted
+           bg-primary-active-light
+           dark:bg-primary-active-dark
+           bg-[length:200%_200%]
+           shadow-surface-light
+           dark:shadow-surface-dark
+           transition-all duration-200;
+    animation: ct-tab-glow 4s ease infinite;
+  }
+
+  .ct-tab-brand:hover {
+    @apply scale-[1.03];
+  }
+
+  .ct-tab-brand:active {
+    @apply scale-[0.97];
+  }
+
+  .ct-tab-brand.ct-tab-disabled {
+    @apply opacity-50 pointer-events-none;
+  }
+
+  @keyframes ct-tab-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
 }

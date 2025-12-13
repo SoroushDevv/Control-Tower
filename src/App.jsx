@@ -7,7 +7,7 @@ function App() {
   const element = useRoutes(routeConfig)
 
   return (
-    <div className='w-full h-screen flex justify-center items-center p-5'>
+    <div className='w-full h-screen flex justify-center items-center'>
       {element} 
     </div>
   )
