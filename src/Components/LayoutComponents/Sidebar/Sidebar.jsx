@@ -18,10 +18,15 @@ import { Search } from 'lucide-react';
 import { useTheme } from "../../../Contexts/ThemeContext";
 import ThemeToggleButtonVertical from "../../UI/ThemeToggleButton/ThemeToggleBottonVertical";
 import ThemeToggleButtonHorizontal from "../../UI/ThemeToggleButton/ThemeToggleButtonHorizontal";
+import { useSidebar } from "../../../Contexts/SideBarState";
+import Tooltip from "../../UI/Tooltip/Tooltip";
+
+
+
 function Sidebar() {
 
   const { isDark, toggleTheme } = useTheme()
-  const [isClose, setIsClose] = useState(false)
+  const { isClose, toggleSidebar } = useSidebar()
 
 
   useEffect(() => {
@@ -29,83 +34,173 @@ function Sidebar() {
     console.log("close :", isClose)
   }, [isClose])
   return (
-    <div className={`${isClose ? "w-20" : "w-80"}  h-fit max-w-64 bg-light-bg-base text-light-text-primary dark:bg-dark-bg-base font-light p-4`} >
-      <div className="w-full h-screen flex flex-col justify-between items-start">
+    <div className={`${isClose ? "w-20" : "w-80"} h-screen fixed top-0 right-0 bg-light-bg-base text-light-text-primary dark:bg-dark-bg-base font-light ${isClose ? "px-2 py-4" : "p-4"} transition-all duration-200 ease-in-out`} >
+      <div className="w-full h-full  flex-1 
+    scrollbar-thin
+    scrollbar-thumb-gray-400
+    scrollbar-track-transparent
+    hover:scrollbar-thumb-gray-500
+    dark:scrollbar-thumb-gray-600 flex flex-col justify-between items-start">
         <div className="w-full flex flex-col justify-start items-start">
-          <div className="w-full h-16 flex justify-between items-center">
+          <div className={` w-full h-16 flex ${isClose ? "justify-center" : "justify-between"} items-center`}>
             {!isClose && (
               <img className={`h-full w-2/3 object-cotain`} src="/COLogo.png" alt="applogo" />
             )}
-            <div className={`size-10 text-light-bg-base bg-dark-bg-surfaceAlt flex justify-center items-center font-bold text-xl border-2 border-dark-primary rounded-full`} onClick={() => setIsClose(!isClose)}>
-              {isClose ? <CircleChevronLeft /> : <CircleChevronRight />}
+            <div className={`size-10 h-full text-light-bg-base bg-dark-bg-surfaceAlt flex justify-center items-center font-bold text-xl bg-transparent`} onClick={() => toggleSidebar()}>
+              {isClose ? <CircleChevronLeft size={60} fill="black" /> : <CircleChevronRight size={60} fill="black" />}
 
             </div>
           </div>
-          <div className="w-full bg-light-bg-base dark:bg-dark-bg-base text-light-text-primary font-light  mb-12">
-            <div className="">
-              <h2 className={`${isClose ? "hidden" : ""} ct-title py-2`}>
-                دیده بان
-              </h2>
-              <ul className="w-full flex flex-col gap-2 justify-start">
-                <li className="ct-tab flex gap-2">
+          <div className="w-full bg-light-bg-base bg-transparent font-light  mb-12">
+            <h2 className={`${isClose ? "hidden" : ""} ct-title py-2`}>
+              دیده بان
+            </h2>
+            <ul className={` w-full flex flex-col gap-2 justify-start`}>
+              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+
+                 {isClose ? <Tooltip content={"داشبورد "}>
                   <LayoutDashboard />
-                  <span className={`${isClose ? "hidden" : ""}`}>داشبورد</span>
-                </li>
+                </Tooltip> : (
+                  <>
+                 <LayoutDashboard />
+                   <span className={`${isClose ? "hidden" : ""}`}>داشبورد </span>
+                  </>
+                 
+                )}
 
-                <li className="ct-tab-active flex gap-2">
+              </li>
+
+              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+                {isClose ? <Tooltip content={"مشتری ها"}>
                   <Users />
-                  <span className={`${isClose ? "hidden" : ""}`}>مشتری ها</span>
-                </li>
+                </Tooltip> : (
+                  <>
+                  <Users />
+                   <span className={`${isClose ? "hidden" : ""}`}>مشتری ها</span>
+                  </>
+                 
+                )}
 
 
-                <li className="ct-tab flex gap-2">
+
+              </li>
+
+
+              <li className={`${isClose ? "ct-tab-close ct-tab-close-active justify-center py-2" : "ct-tab ct-tab-active"} flex gap-2`}>
+                {isClose ? <Tooltip content={"محصولات"}>
                   <ShoppingCart />
+                </Tooltip> : (
+                  <>
+                   <ShoppingCart />
                   <span className={`${isClose ? "hidden" : ""}`}>محصولات</span>
-                </li>
-                <li className="ct-tab flex gap-2">
+                  </>
+                )}
+
+              </li>
+              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+                {isClose ? <Tooltip content={"اعلان ها"}>
                   <Bell />
+                </Tooltip> : (
+                  <>
+                   <Bell />
                   <span className={`${isClose ? "hidden" : ""}`}>اعلان ها</span>
-                </li>
-                <li className="ct-tab flex gap-2">
+                  </>
+                )}
+
+
+              </li>
+              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+                {isClose ? <Tooltip content={"سفارشات"}>
+
                   <CirclePile />
-                  <span className={`${isClose ? "hidden" : ""}`}>سفارشات</span>
-                </li>
-                <li className="ct-tab flex gap-2">
+                </Tooltip> : (
+                  <>
+                  <CirclePile />
+                   <span className={`${isClose ? "hidden" : ""}`}>سفارشات</span>
+                  </>
+                 
+                )}
+
+              </li>
+              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+                {isClose ? <Tooltip content={"تخفیف ها"}>
+                  <BadgePercent />
+                </Tooltip> : (
+                  <>
                   <BadgePercent />
                   <span className={`${isClose ? "hidden" : ""}`}>تخفیف ها</span>
-                </li>
-                <li className="ct-tab flex gap-2">
+                  </>
+                   
+                )}
+
+              </li>
+              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+                {isClose ? <Tooltip content={"تخفیف ها"}>
                   <ChartNoAxesCombined />
-                  <span className={`${isClose ? "hidden" : ""}`}>امار ها</span>
-                </li>
-              </ul>
-            </div>
+                </Tooltip> : (
+                  <>
+                   <ChartNoAxesCombined />
+                   <span className={`${isClose ? "hidden" : ""}`}>امار ها</span>
+                  </>
+                )}
+
+              </li>
+            </ul>
+
           </div>
-          <div className="w-full bg-light-bg-base  dark:bg-dark-bg-base text-light-text-primary font-light">
+          <div className={`${isClose ? "flex flex-col justify-center items-center" : "flex flex-col justify-start"} w-full bg-light-bg-base  bg-transparent font-light`}>
             <h2 className={`${isClose ? "hidden" : ""} ct-title py-2`}>حساب کاربری</h2>
-            <div className="ct-tab flex gap-2">
-              <Settings />
-              <span className={`${isClose ? "hidden" : ""}`}>تنظیمات</span>
+            <div className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+              {isClose ? <Tooltip content={"تنظیمات"}>
+                <Settings />
+              </Tooltip> : (
+                <>
+                  <Settings />
+                  <span className={`${isClose ? "hidden" : ""}`}>تنظیمات</span>
+                </>
+
+              )}
             </div>
-            {isClose ? <ThemeToggleButtonVertical close={isClose} /> : <ThemeToggleButtonHorizontal close={isClose} />}
+            <div className={`${isClose ? "justify-center" : "px-4 py-2"} w-full flex`} >
+
+              {isClose ? <ThemeToggleButtonVertical close={isClose} /> : <ThemeToggleButtonHorizontal close={isClose} />}
+            </div>
 
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <div className={`${isClose ? "bg-none justify-center" : "ct-tab justify-between"} dark:bg-dark-bg-overlay flex  items-center`}>
+          <div className={`${isClose ? "bg-none justify-center" : "ct-tab justify-between"} bg-transparent flex  items-center`}>
+            {isClose ? <Tooltip content={"پروفایل"}>
+              <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
+                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="" />
+              </div>
+            </Tooltip> : (
+              <>
+                <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
+                  <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="" />
+                </div>
+              </>
+
+            )}
 
             <div className="titles flex flex-col gap-1 justify-start items-start">
               <div className={`${isClose ? "hidden" : ""} ct-title`}>سروش مرادی</div>
               <div className={`${isClose ? "hidden" : ""} ct-title`}>ادمین</div>
             </div>
-            <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
-              <img className={`${isClose ? "size-4" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="" />
-            </div>
+
 
           </div>
-          <div className="ct-tab flex justify-start items-center gap-2" >
-            <LogOut />
-            <span className={`${isClose ? "hidden" : ""}`}>خروج</span>
+          <div className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab justify-start py-2"} flex  items-center gap-2 bg-light-state-dangerFaint hover:bg-light-state-dangerSoft`} >
+            {isClose ? <Tooltip content={"خروج"}>
+              <LogOut className="stroke-light-state-danger" />
+            </Tooltip> : (
+              <>
+                <LogOut className="stroke-light-state-danger" />
+                <span className={`${isClose ? "hidden" : ""}`}>خروج</span>
+              </>
+            )}
+
+
           </div>
 
         </div>

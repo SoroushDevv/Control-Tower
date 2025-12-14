@@ -9,7 +9,7 @@ export default function ThemeToggleButtonVertical() {
       onClick={toggleTheme}
       aria-label="Toggle theme"
       aria-pressed={isDark}
-      className={` w-full h-20 rounded-full
+      className={`relative w-10 h-20 rounded-full
         focus:outline-none focus-visible:outline-none
         bg-light-bg-surfaceAlt dark:bg-dark-bg-surfaceAlt
         transition-all duration-300
@@ -19,11 +19,12 @@ export default function ThemeToggleButtonVertical() {
       `}
     >
       <span
-        className={` left-1 top-1 w-8 h-8 rounded-full
+        className={`absolute left-1 top-1 w-8 h-8 rounded-full
           flex items-center justify-center
           transition-all duration-300 ease-out
-          
-          shadow-md`}
+          shadow-md
+          ${isDark ? "translate-y-10" : "translate-y-0"}
+          `}
       >
         {isDark ? (
           <Moon size={16} className="text-dark-primary" />

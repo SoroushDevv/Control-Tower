@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import { useTheme } from "../../../Contexts/ThemeContext";
 
 const Tooltip = ({ content, children }) => {
-  const [visible, setVisible] = useState(false);
-
+  const {isDark} = useTheme()
   return (
-    <div className="relative inline-block"
-         onMouseEnter={() => setVisible(true)}
-         onMouseLeave={() => setVisible(false)}
-    >
-      {children}
-      {visible && (
-        <div className="absolute bottom-full mb-2 px-2 py-1 bg-gray-800 text-white text-sm rounded">
+    <Tippy
+      content={
+        <div className="relative px-2 py-1 text-sm rounded">
           {content}
         </div>
-      )}
-    </div>
+      }
+      theme="light"
+      placement="left"
+      arrow={true}
+      animation="shift-away"
+      delay={0}
+      hideDelay={0}
+      offset={[0,30]}
+    >
+      {children}
+    </Tippy>
   );
 };
 

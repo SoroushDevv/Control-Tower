@@ -10,7 +10,7 @@ export default function ThemeToggleButtonHorizontal({close = false}) {
       onClick={toggleTheme}
       aria-label="Toggle theme"
       aria-pressed={isDark}
-      className={`relative px-3 w-20 h-10 rounded-full
+      className={`relative w-20 h-10 rounded-full
         focus:outline-none focus-visible:outline-none
         bg-light-bg-surfaceAlt dark:bg-dark-bg-surfaceAlt
         transition-all duration-300
