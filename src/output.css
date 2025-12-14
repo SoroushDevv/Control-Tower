@@ -637,13 +637,15 @@ video {
 
 .ct-tab:hover {
   cursor: pointer;
+  --tw-border-opacity: 1;
+  border-color: rgb(31 111 235 / var(--tw-border-opacity, 1));
   --tw-bg-opacity: 1;
   background-color: rgb(240 243 247 / var(--tw-bg-opacity, 1));
 }
 
 .ct-tab:hover:is(.dark *) {
   --tw-bg-opacity: 1;
-  background-color: rgb(30 37 48 / var(--tw-bg-opacity, 1));
+  background-color: rgb(22 27 34 / var(--tw-bg-opacity, 1));
 }
 
 .ct-tab-close:hover {
@@ -746,6 +748,18 @@ video {
   color: rgb(230 237 243 / var(--tw-text-opacity, 1));
 }
 
+.ct-subtitle {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(76 85 97 / var(--tw-text-opacity, 1));
+}
+
+.ct-subtitle:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(139 148 158 / var(--tw-text-opacity, 1));
+}
+
 /* =========================================
      🔵 8) Animated Brand Tab
   ============================================ */
@@ -780,10 +794,6 @@ video {
   pointer-events: none;
 }
 
-.visible {
-  visibility: visible;
-}
-
 .fixed {
   position: fixed;
 }
@@ -806,10 +816,6 @@ video {
 
 .bottom-\[-11px\] {
   bottom: -11px;
-}
-
-.bottom-full {
-  bottom: 100%;
 }
 
 .left-0 {
@@ -862,18 +868,6 @@ video {
 
 .top-\[-10px\] {
   top: -10px;
-}
-
-.left-full {
-  left: 100%;
-}
-
-.bottom-1\/2 {
-  bottom: 50%;
-}
-
-.right-full {
-  right: 100%;
 }
 
 .z-0 {
@@ -1031,6 +1025,11 @@ video {
   height: 1.25rem;
 }
 
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .size-8 {
   width: 2rem;
   height: 2rem;
@@ -1039,11 +1038,6 @@ video {
 .size-96 {
   width: 24rem;
   height: 24rem;
-}
-
-.size-6 {
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 .h-0\.5 {
@@ -1441,16 +1435,8 @@ video {
   overflow: hidden;
 }
 
-.overflow-visible {
-  overflow: visible;
-}
-
 .overflow-x-auto {
   overflow-x: auto;
-}
-
-.overflow-y-auto {
-  overflow-y: auto;
 }
 
 .whitespace-nowrap {
@@ -1600,11 +1586,6 @@ video {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
-.bg-gray-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
-}
-
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity, 1));
@@ -1633,6 +1614,10 @@ video {
 .bg-light-bg-surfaceAlt {
   --tw-bg-opacity: 1;
   background-color: rgb(240 243 247 / var(--tw-bg-opacity, 1));
+}
+
+.bg-light-state-dangerFaint {
+  background-color: #D9302514;
 }
 
 .bg-red-100 {
@@ -1669,10 +1654,6 @@ video {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
 
-.bg-light-state-dangerFaint {
-  background-color: #D9302514;
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1699,12 +1680,12 @@ video {
   --tw-gradient-to: #111827 var(--tw-gradient-to-position);
 }
 
-.stroke-white {
-  stroke: #fff;
-}
-
 .stroke-light-state-danger {
   stroke: #D93025;
+}
+
+.stroke-white {
+  stroke: #fff;
 }
 
 .object-contain {
@@ -1794,11 +1775,6 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 
 .pb-12 {
@@ -2291,13 +2267,13 @@ video {
   background-color: rgb(99 102 241 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-light-state-dangerSoft:hover {
+  background-color: #D9302533;
+}
+
 .hover\:bg-red-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
-}
-
-.hover\:bg-light-state-dangerSoft:hover {
-  background-color: #D9302533;
 }
 
 .hover\:text-blue-500:hover {
@@ -2398,10 +2374,6 @@ video {
 .dark\:bg-dark-bg-base:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(13 17 23 / var(--tw-bg-opacity, 1));
-}
-
-.dark\:bg-dark-bg-overlay:is(.dark *) {
-  background-color: #1F2935CC;
 }
 
 .dark\:bg-dark-bg-surface:is(.dark *) {

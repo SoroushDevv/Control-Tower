@@ -25,8 +25,24 @@ import Tooltip from "../../UI/Tooltip/Tooltip";
 
 function Sidebar() {
 
-  const { isDark, toggleTheme } = useTheme()
   const { isClose, toggleSidebar } = useSidebar()
+  const [activeTabId, setActiveTabId] = useState(1)
+
+  const sidebarTabs = [
+    { id: 1, tab: "داشبورد", icon: <LayoutDashboard />, ref: "" },
+    { id: 2, tab: "مشتری ها ", icon: <Users />, ref: "" },
+    { id: 3, tab: "محصولات", icon: <ShoppingCart />, ref: "" },
+    { id: 4, tab: "اعلان ها", icon: <Bell />, ref: "" },
+    { id: 5, tab: "سفارشات", icon: <CirclePile />, ref: "" },
+    { id: 6, tab: "تخفیف ها", icon: <BadgePercent />, ref: "" },
+    { id: 7, tab: "امار ها", icon: <ChartNoAxesCombined />, ref: "" },
+  ]
+
+
+
+
+
+
 
 
   useEffect(() => {
@@ -42,9 +58,9 @@ function Sidebar() {
     hover:scrollbar-thumb-gray-500
     dark:scrollbar-thumb-gray-600 flex flex-col justify-between items-start">
         <div className="w-full flex flex-col justify-start items-start">
-          <div className={` w-full h-16 flex ${isClose ? "justify-center" : "justify-between"} items-center`}>
+          <div className={` w-full h-18 flex ${isClose ? "justify-center" : "justify-between"} items-center`}>
             {!isClose && (
-              <img className={`h-full w-2/3 object-cotain`} src="/COLogo.png" alt="applogo" />
+              <img className={`h-full w-2/3 object-cover`} src="/logoo.png" alt="applogo" />
             )}
             <div className={`size-10 h-full text-light-bg-base bg-dark-bg-surfaceAlt flex justify-center items-center font-bold text-xl bg-transparent`} onClick={() => toggleSidebar()}>
               {isClose ? <CircleChevronLeft size={60} fill="black" /> : <CircleChevronRight size={60} fill="black" />}
@@ -56,95 +72,22 @@ function Sidebar() {
               دیده بان
             </h2>
             <ul className={` w-full flex flex-col gap-2 justify-start`}>
-              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+              {sidebarTabs.map((item) => (
+                <li key={item.id} onClick={() => setActiveTabId(item.id)} className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2 ${activeTabId === item.id ? "ct-tab-active" : ""}`}>
 
-                 {isClose ? <Tooltip content={"داشبورد "}>
-                  <LayoutDashboard />
-                </Tooltip> : (
-                  <>
-                 <LayoutDashboard />
-                   <span className={`${isClose ? "hidden" : ""}`}>داشبورد </span>
-                  </>
-                 
-                )}
+                  {isClose ?
+                    <Tooltip content={`${item.tab}`}>
+                      {item.icon}
+                    </Tooltip> : (
+                      <>
+                        {item.icon}
+                        <span className={`${isClose ? "hidden" : ""}`}>{item.tab}</span>
+                      </>
 
-              </li>
+                    )}
 
-              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
-                {isClose ? <Tooltip content={"مشتری ها"}>
-                  <Users />
-                </Tooltip> : (
-                  <>
-                  <Users />
-                   <span className={`${isClose ? "hidden" : ""}`}>مشتری ها</span>
-                  </>
-                 
-                )}
-
-
-
-              </li>
-
-
-              <li className={`${isClose ? "ct-tab-close ct-tab-close-active justify-center py-2" : "ct-tab ct-tab-active"} flex gap-2`}>
-                {isClose ? <Tooltip content={"محصولات"}>
-                  <ShoppingCart />
-                </Tooltip> : (
-                  <>
-                   <ShoppingCart />
-                  <span className={`${isClose ? "hidden" : ""}`}>محصولات</span>
-                  </>
-                )}
-
-              </li>
-              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
-                {isClose ? <Tooltip content={"اعلان ها"}>
-                  <Bell />
-                </Tooltip> : (
-                  <>
-                   <Bell />
-                  <span className={`${isClose ? "hidden" : ""}`}>اعلان ها</span>
-                  </>
-                )}
-
-
-              </li>
-              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
-                {isClose ? <Tooltip content={"سفارشات"}>
-
-                  <CirclePile />
-                </Tooltip> : (
-                  <>
-                  <CirclePile />
-                   <span className={`${isClose ? "hidden" : ""}`}>سفارشات</span>
-                  </>
-                 
-                )}
-
-              </li>
-              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
-                {isClose ? <Tooltip content={"تخفیف ها"}>
-                  <BadgePercent />
-                </Tooltip> : (
-                  <>
-                  <BadgePercent />
-                  <span className={`${isClose ? "hidden" : ""}`}>تخفیف ها</span>
-                  </>
-                   
-                )}
-
-              </li>
-              <li className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
-                {isClose ? <Tooltip content={"تخفیف ها"}>
-                  <ChartNoAxesCombined />
-                </Tooltip> : (
-                  <>
-                   <ChartNoAxesCombined />
-                   <span className={`${isClose ? "hidden" : ""}`}>امار ها</span>
-                  </>
-                )}
-
-              </li>
+                </li>
+              ))}
             </ul>
 
           </div>
@@ -169,23 +112,23 @@ function Sidebar() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <div className={`${isClose ? "bg-none justify-center" : "ct-tab justify-between"} bg-transparent flex  items-center`}>
+          <div className={`${isClose ? "bg-none justify-center" : "ct-tab justify-between"} bg-transparent flex flex-row-reverse items-center`}>
             {isClose ? <Tooltip content={"پروفایل"}>
               <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
                 <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="" />
               </div>
             </Tooltip> : (
-              <>
-                <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
-                  <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="" />
-                </div>
-              </>
+
+              <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
+                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="" />
+              </div>
+
 
             )}
 
             <div className="titles flex flex-col gap-1 justify-start items-start">
               <div className={`${isClose ? "hidden" : ""} ct-title`}>سروش مرادی</div>
-              <div className={`${isClose ? "hidden" : ""} ct-title`}>ادمین</div>
+              <div className={`${isClose ? "hidden" : ""} ct-subtitle`}>ادمین</div>
             </div>
 
 
