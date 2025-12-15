@@ -9,16 +9,16 @@ const SearchContext = createContext()
 export const SearchProvider = ({children}) => {
 
     const [query,setQuery] = useState()
-    const [isSearchClose,setIsSearchClose] = useState(false)
+    const [isSearchOpen,setIsSearchOpen] = useState(false)
 
 
 
 
-
+  console.log("query:" ,query)
 
 
     return (
-        <SearchContext.Provider value={{isSearchClose,setIsSearchClose,query,setQuery}}>
+        <SearchContext.Provider value={{isSearchOpen,setIsSearchOpen,query,setQuery}}>
             {children}
         </SearchContext.Provider>
     )

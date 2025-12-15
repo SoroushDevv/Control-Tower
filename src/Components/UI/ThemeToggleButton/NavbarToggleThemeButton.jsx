@@ -14,6 +14,7 @@ export default function ThemeToggleButtonHorizontal({close = false}) {
         focus:outline-none focus-visible:outline-none
         bg-light-bg-surfaceAlt dark:bg-dark-bg-surfaceAlt
         transition-all duration-300
+        p-1
         shadow-[inset_2px_2px_4px_rgba(0,0,0,0.15),inset_-2px_-2px_4px_rgba(255,255,255,0.6)]
         dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)]
         flex items-center 

@@ -56,7 +56,7 @@ function Sidebar() {
     console.log("close :", isClose)
   }, [isClose])
   return (
-    <div className={`${isClose ? "w-20" : "w-80"} h-screen sticky top-0 right-0 bg-light-bg-base text-light-text-primary dark:bg-dark-bg-base font-light ${isClose ? "px-2 py-4" : "p-4"} transition-all duration-200 ease-in-out`} >
+    <div className={`${isClose ? "w-20" : "w-80"} h-screen sticky top-0 right-0 bg-light-bg-base text-light-text-primary dark:bg-dark-bg-surface font-light ${isClose ? "px-2 py-4" : "p-4"} transition-all duration-200 ease-in-out`} >
       <div className="w-full h-full  flex-1 
     scrollbar-thin
     scrollbar-thumb-gray-400
@@ -128,12 +128,12 @@ function Sidebar() {
           <div className={`${isClose ? "bg-none justify-center" : "ct-tab justify-between"} bg-transparent flex flex-row-reverse items-center`}>
             {isClose ? <Tooltip content={"پروفایل"}>
               <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
-                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="user-profile-image" />
+                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/manager.png" alt="user-profile-image" />
               </div>
             </Tooltip> : (
 
               <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
-                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="user-profile-image" />
+                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/manager.png" alt="user-profile-image" />
               </div>
 
 
@@ -148,7 +148,7 @@ function Sidebar() {
           </div>
           <Link to={"/login"} className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab justify-start py-2"} text-inherit hover:text-inherit flex  items-center gap-2 bg-light-state-dangerFaint hover:bg-light-state-dangerSoft`} >
             {isClose ? <Tooltip content={"خروج"}>
-              <LogOut className="stroke-light-state-danger" />
+              <LogOut className="stroke-light-state-danger mb-4" />
             </Tooltip> : (
               <>
                 <LogOut className="stroke-light-state-danger" />
