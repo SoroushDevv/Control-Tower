@@ -686,31 +686,6 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.ct-tab-close-active {
-  cursor: pointer;
-  border-radius: 0.5rem;
-  background-image: linear-gradient(135deg, #14D8C8 0%, #1F6FEB 100%);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-  --tw-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  --tw-shadow-colored: 0 2px 8px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.ct-tab-close-active:is(.dark *) {
-  background-image: linear-gradient(135deg, #14F1D9 0%, #2F81F7 100%);
-  --tw-text-opacity: 1;
-  color: rgb(13 17 23 / var(--tw-text-opacity, 1));
-  --tw-shadow: 0 2px 8px rgba(0,0,0,0.35);
-  --tw-shadow-colored: 0 2px 8px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 /* =========================================
      🔵 2) Input
   ============================================ */
@@ -2005,6 +1980,11 @@ video {
   color: rgb(133 77 14 / var(--tw-text-opacity, 1));
 }
 
+.text-dark-text-inverted {
+  --tw-text-opacity: 1;
+  color: rgb(13 17 23 / var(--tw-text-opacity, 1));
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -2047,6 +2027,11 @@ video {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .outline-1 {
@@ -2289,6 +2274,10 @@ video {
 .hover\:text-indigo-500:hover {
   --tw-text-opacity: 1;
   color: rgb(99 102 241 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-inherit:hover {
+  color: inherit;
 }
 
 .hover\:scrollbar-thumb-gray-500 {

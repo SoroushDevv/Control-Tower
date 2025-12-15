@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Input from "../../UI/Input/Input";
 import { Link } from "react-router-dom";
 import { LayoutDashboard } from 'lucide-react';
@@ -15,7 +16,6 @@ import { CirclePile } from 'lucide-react';
 import { LogOut } from 'lucide-react';
 import { Settings } from 'lucide-react';
 import { Search } from 'lucide-react';
-import { useTheme } from "../../../Contexts/ThemeContext";
 import ThemeToggleButtonVertical from "../../UI/ThemeToggleButton/ThemeToggleBottonVertical";
 import ThemeToggleButtonHorizontal from "../../UI/ThemeToggleButton/ThemeToggleButtonHorizontal";
 import { useSidebar } from "../../../Contexts/SideBarState";
@@ -25,20 +25,26 @@ import Tooltip from "../../UI/Tooltip/Tooltip";
 
 function Sidebar() {
 
+  const urlParam = useParams("/setting")
+
+
+
   const { isClose, toggleSidebar } = useSidebar()
   const [activeTabId, setActiveTabId] = useState(1)
 
-  const sidebarTabs = [
-    { id: 1, tab: "داشبورد", icon: <LayoutDashboard />, ref: "" },
-    { id: 2, tab: "مشتری ها ", icon: <Users />, ref: "" },
-    { id: 3, tab: "محصولات", icon: <ShoppingCart />, ref: "" },
-    { id: 4, tab: "اعلان ها", icon: <Bell />, ref: "" },
-    { id: 5, tab: "سفارشات", icon: <CirclePile />, ref: "" },
-    { id: 6, tab: "تخفیف ها", icon: <BadgePercent />, ref: "" },
-    { id: 7, tab: "امار ها", icon: <ChartNoAxesCombined />, ref: "" },
+  const navTabs = [
+    { id: 1, label: "داشبورد", icon: <LayoutDashboard className="outline-none"/>, route: "/dashboard" },
+    { id: 2, label: "مشتری ها ", icon: <Users className="outline-none"/>, route: "/customers" },
+    { id: 3, label: "محصولات", icon: <ShoppingCart className="outline-none"/>, route: "/products" },
+    { id: 4, label: "اعلان ها", icon: <Bell className="outline-none"/>, route: "notifications" },
+    { id: 5, label: "سفارشات", icon: <CirclePile className="outline-none"/>, route: "orders" },
+    { id: 6, label: "تخفیف ها", icon: <BadgePercent className="outline-none"/>, route: "offers" },
+    { id: 7, label: "امار ها", icon: <ChartNoAxesCombined className="outline-none"/>, route: "stats" },
   ]
 
-
+  const accountTabs = [
+    { id: 1, label: "تنظیمات", icon: <Settings />, route: "/setting" }
+  ]
 
 
 
@@ -72,16 +78,16 @@ function Sidebar() {
               دیده بان
             </h2>
             <ul className={` w-full flex flex-col gap-2 justify-start`}>
-              {sidebarTabs.map((item) => (
-                <li key={item.id} onClick={() => setActiveTabId(item.id)} className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2 ${activeTabId === item.id ? "ct-tab-active" : ""}`}>
+              {navTabs.map((tab) => (
+                <li key={tab.id} onClick={() => setActiveTabId(tab.id)} className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2 ${activeTabId === tab.id ? "ct-tab-active" : ""}`}>
 
                   {isClose ?
-                    <Tooltip content={`${item.tab}`}>
-                      {item.icon}
+                    <Tooltip content={`${tab.label}`}>
+                      {tab.icon}
                     </Tooltip> : (
                       <>
-                        {item.icon}
-                        <span className={`${isClose ? "hidden" : ""}`}>{item.tab}</span>
+                        {tab.icon}
+                        <span className={`${isClose ? "hidden" : ""}`}>{tab.label}</span>
                       </>
 
                     )}
@@ -93,17 +99,24 @@ function Sidebar() {
           </div>
           <div className={`${isClose ? "flex flex-col justify-center items-center" : "flex flex-col justify-start"} w-full bg-light-bg-base  bg-transparent font-light`}>
             <h2 className={`${isClose ? "hidden" : ""} ct-title py-2`}>حساب کاربری</h2>
-            <div className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
-              {isClose ? <Tooltip content={"تنظیمات"}>
-                <Settings />
-              </Tooltip> : (
-                <>
-                  <Settings />
-                  <span className={`${isClose ? "hidden" : ""}`}>تنظیمات</span>
-                </>
+            {accountTabs.map((tab) => (
 
-              )}
-            </div>
+              <div key={tab.id} className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab "} flex gap-2`}>
+                {
+                  isClose ? <Tooltip content={`${tab.label}`}>
+                    {tab.icon}
+                  </Tooltip> :
+                    <>
+                      {tab.icon}
+                      <span className={`${isClose ? "hidden" : ""}`}>{tab.label}</span>
+                    </>
+                }
+              </div>
+            ))}
+
+
+
+
             <div className={`${isClose ? "justify-center" : "px-4 py-2"} w-full flex`} >
 
               {isClose ? <ThemeToggleButtonVertical close={isClose} /> : <ThemeToggleButtonHorizontal close={isClose} />}
@@ -133,18 +146,16 @@ function Sidebar() {
 
 
           </div>
-          <div className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab justify-start py-2"} flex  items-center gap-2 bg-light-state-dangerFaint hover:bg-light-state-dangerSoft`} >
+          <Link to={"/login"} className={`${isClose ? "ct-tab-close justify-center py-2" : "ct-tab justify-start py-2"} text-inherit hover:text-inherit flex  items-center gap-2 bg-light-state-dangerFaint hover:bg-light-state-dangerSoft`} >
             {isClose ? <Tooltip content={"خروج"}>
               <LogOut className="stroke-light-state-danger" />
             </Tooltip> : (
               <>
                 <LogOut className="stroke-light-state-danger" />
-                <span className={`${isClose ? "hidden" : ""}`}>خروج</span>
+                <span  className={`${isClose ? "hidden" : ""} `}>خروج</span>
               </>
             )}
-
-
-          </div>
+          </Link>
 
         </div>
 
