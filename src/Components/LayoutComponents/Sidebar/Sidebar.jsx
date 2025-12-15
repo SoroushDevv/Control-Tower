@@ -56,7 +56,7 @@ function Sidebar() {
     console.log("close :", isClose)
   }, [isClose])
   return (
-    <div className={`${isClose ? "w-20" : "w-80"} h-screen fixed top-0 right-0 bg-light-bg-base text-light-text-primary dark:bg-dark-bg-base font-light ${isClose ? "px-2 py-4" : "p-4"} transition-all duration-200 ease-in-out`} >
+    <div className={`${isClose ? "w-20" : "w-80"} h-screen sticky top-0 right-0 bg-light-bg-base text-light-text-primary dark:bg-dark-bg-base font-light ${isClose ? "px-2 py-4" : "p-4"} transition-all duration-200 ease-in-out`} >
       <div className="w-full h-full  flex-1 
     scrollbar-thin
     scrollbar-thumb-gray-400
@@ -128,12 +128,12 @@ function Sidebar() {
           <div className={`${isClose ? "bg-none justify-center" : "ct-tab justify-between"} bg-transparent flex flex-row-reverse items-center`}>
             {isClose ? <Tooltip content={"پروفایل"}>
               <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
-                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="" />
+                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="user-profile-image" />
               </div>
             </Tooltip> : (
 
               <div className="w-fit dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
-                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="" />
+                <img className={`${isClose ? "size-6" : "size-8"} object-contain text-light-text-primary`} src="/Images/profile-thumb/administrator.png" alt="user-profile-image" />
               </div>
 
 

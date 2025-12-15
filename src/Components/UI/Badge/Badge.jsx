@@ -1,6 +1,6 @@
 import React from "react";
 
-const Badge = ({ children, color = "blue" }) => {
+const Badge = ({ children, color = "blue" ,style = ""}) => {
   const colors = {
     blue: "bg-blue-500 text-white",
     green: "bg-green-500 text-white",
@@ -8,7 +8,7 @@ const Badge = ({ children, color = "blue" }) => {
     gray: "bg-gray-300 text-gray-800",
   };
   return (
-    <span className={`px-2 py-1 text-xs rounded-full ${colors[color] || colors.blue}`}>
+    <span className={`px-2 py-1 text-xs rounded-full ${colors[color] || colors.blue} ${style}`}>
       {children}
     </span>
   );

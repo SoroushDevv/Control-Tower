@@ -8,6 +8,19 @@ module.exports = {
 
   theme: {
     extend: {
+       keyframes: {
+        'bell-shake': {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '15%': { transform: 'rotate(10deg)' },
+          '30%': { transform: 'rotate(-10deg)' },
+          '45%': { transform: 'rotate(6deg)' },
+          '60%': { transform: 'rotate(-6deg)' },
+          '75%': { transform: 'rotate(2deg)' },
+        },
+      },
+      animation: {
+        'bell-shake': 'bell-shake 1.2s ease-in-out infinite',
+      },
       colors: {
         /* ---------------------------------------------------
            🎨 CONTROL TOWER DESIGN SYSTEM — ADVANCED COLOR SET
