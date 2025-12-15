@@ -9,7 +9,7 @@
   ============================================ */
 
   .ct-tab {
-    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-light-text-secondary dark:text-dark-text-secondary;
+    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-light-text-secondary dark:text-dark-text-secondary ;
   }
 
   .ct-tab-close {
