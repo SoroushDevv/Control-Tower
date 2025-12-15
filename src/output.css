@@ -1980,11 +1980,6 @@ video {
   color: rgb(133 77 14 / var(--tw-text-opacity, 1));
 }
 
-.text-dark-text-inverted {
-  --tw-text-opacity: 1;
-  color: rgb(13 17 23 / var(--tw-text-opacity, 1));
-}
-
 .opacity-0 {
   opacity: 0;
 }
