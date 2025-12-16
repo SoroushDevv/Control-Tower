@@ -13,7 +13,7 @@ const SearchBar = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="جستجو..."
-        className="p-2 h-10 w-52 rounded-full outline-none
+        className="p-2 h-10 w-72 rounded-full outline-none
   focus:ring-2
   focus:ring-light-border-focus  transition-all ease-in-out duration-200
   
