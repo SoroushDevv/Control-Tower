@@ -42,7 +42,7 @@ export default function Login() {
               </Badge>
               <Bell className="" />
               {isNotifsOpen && (
-                <div className="absolute top-full right-1/2 translate-x-1/2 flex flex-col justify-between items-start gap-1 bg-light-bg-base text-light-bg-base dark:bg-dark-bg-surface dark:text-dark-text-primary shadow-surface-dark divide-y-2 divide-opacity-50 min-w-[400px] py-2 px-3 rounded-md">
+                <div className="absolute top-full right-1/2 translate-x-1/2 flex flex-col justify-between items-start gap-1 bg-light-bg-base text-light-bg-base dark:bg-dark-bg-surface dark:text-dark-text-primary shadow-surface-dark divide-y-2 divide-opacity-50 min-w-[400px] py-2 px-3 rounded-md z-50">
                   <div className="w-full flex basis-1/6 justify-center items-center py-2">
                     <p className="ct-title text-light-text-primarySoft dark:text-dark-text-primarySoft">اعلان ها</p>
                   </div>
