@@ -68,7 +68,7 @@ function Sidebar() {
             {!isClose && (
               <img className={`h-full w-2/3 object-cover`} src="/logoo.png" alt="applogo" />
             )}
-            <div className={`size-10 h-full text-light-bg-base bg-dark-bg-surfaceAlt flex justify-center items-center font-bold text-xl bg-transparent`} onClick={() => toggleSidebar()}>
+            <div className={`size-10 h-full text-light-bg-base bg-dark-bg-surface flex justify-center items-center font-bold text-xl bg-transparent`} onClick={() => toggleSidebar()}>
               {isClose ? <CircleChevronLeft size={60} fill="black" /> : <CircleChevronRight size={60} fill="black" />}
 
             </div>

@@ -21,9 +21,9 @@ export default function Login() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-full h-fit flex justify-center items-center"
+      className="w-full h-fit flex justify-center items-center p-1 "
     >
-      <div className="w-full h-20 px-3 pt-2 flex justify-between items-center gap-3 border-2  border-light-border bg-light-bg-base text-light-text-primary dark:bg-dark-bg-surface dark:text-dark-text-primary dark:border-dark-border">
+      <div className="w-full h-20 px-3 pt-2 flex justify-between items-center gap-3 border-light-border bg-light-bg-surfaceAlt text-light-text-primary dark:bg-dark-bg-surfaceAlt dark:text-dark-text-primary dark:border-dark-border  border-2 rounded-full">
         <div className="flex basis-2/6 h-full justify-start items-center gap-3 border-light-border-light bg-transparent text-light-text-primarySoft dark:text-dark-text-primarySoft dark:border-dark-border-light">
           <div className="min-h-20 flex justify-between items-center gap-3 border-light-border-light">
             <div className="h-full dark:bg-light-bg-surfaceAlt flex justify-center items-center rounded-full p-2">
@@ -42,7 +42,7 @@ export default function Login() {
               </Badge>
               <Bell className="" />
               {isNotifsOpen && (
-                <div className="absolute top-full right-1/2 translate-x-1/2 flex flex-col justify-between items-start gap-1 bg-light-bg-base text-light-bg-base dark:bg-dark-bg-surface dark:text-dark-text-primary shadow-surface-dark divide-y-2 divide-opacity-50 min-w-[400px] py-2 px-3 rounded-md z-50">
+                <div className="absolute top-full right-1/2 translate-x-1/2 flex flex-col justify-between items-start gap-1 bg-light-bg-surfaceAlt text-light-bg-base dark:bg-dark-bg-surfaceAlt dark:text-dark-text-primary shadow-surface-dark divide-y-2 divide-opacity-50 min-w-[400px] py-2 px-3 rounded-md z-50">
                   <div className="w-full flex basis-1/6 justify-center items-center py-2">
                     <p className="ct-title text-light-text-primarySoft dark:text-dark-text-primarySoft">اعلان ها</p>
                   </div>
