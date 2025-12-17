@@ -10,10 +10,10 @@ export default function DashboardLayout() {
      
      <Sidebar />
      
-      <div className="w-full h-screen">
+      <div className="w-full h-screen px-3">
 
        <Navbar />
-        <main className="">
+        <main className="w-full h-full">
           <Outlet />
         </main>
       </div>

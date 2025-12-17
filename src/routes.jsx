@@ -12,16 +12,15 @@ import Settings from "./Pages/Settings/Settings";
 import Profile from "./Pages/Profile/Profile";
 import Blogs from "./Pages/Blogs/Blogs";
 import LoginPage from "./Pages/Login/LoginPage";
-
+import MainDashboard from "./Components/LayoutComponents/MainDashboard/MainDashboard";
 
 let routeConfig = [
 
   { path: "/login", element: <LoginPage /> },
     {
-    path: "/",
-    element: <DashboardLayout />,
+    path: "/",element: <DashboardLayout />,
     children: [
-      { path: "/", element: <Home /> },
+      { index : true , element: <MainDashboard /> },
       { path: "orders", element: <Orders /> },
       { path: "users", element: <Users /> },
       { path: "roles", element: <Roles /> },

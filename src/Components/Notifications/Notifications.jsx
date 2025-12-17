@@ -16,11 +16,11 @@ export const Notifications = () => {
     ]
 
     const priorityStyles = {
-        low:"bg-red-200",
-        medium:"bg-red-400",
-        high:"bg-red-600",
-        critical:"bg-red-800",
-        default:"bg-gray-500"
+        low:"border-red-200",
+        medium:"border-red-400",
+        high:"border-red-600",
+        critical:"border-red-800",
+        default:"border-gray-500"
     }
 
 
