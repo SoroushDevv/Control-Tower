@@ -1,5 +1,4 @@
 import DashboardLayout from "./Layouts/Dashboard/DashboardLayout";
-import Home from "./Pages/Home/Home";
 import Orders from "./Pages/Orders/Orders";
 import Users from "./Pages/Users/Users";
 import Roles from "./Pages/Roles/Roles";
