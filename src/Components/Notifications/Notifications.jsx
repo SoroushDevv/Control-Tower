@@ -16,18 +16,18 @@ export const Notifications = () => {
     ]
 
     const priorityStyles = {
-        low:"bg-red-200",
-        medium:"bg-red-400",
-        high:"bg-red-600",
-        critical:"bg-red-800",
-        default:"bg-gray-500"
+        low:"border-red-200",
+        medium:"border-red-400",
+        high:"border-red-600",
+        critical:"border-red-800",
+        default:"border-gray-500"
     }
 
 
 
 
     return (
-        <ul className="w-full py-1 px-2 flex flex-col justify-between items-center gap-1 rounded-md">
+        <ul className="w-full py-1 px-2 flex flex-col justify-between items-center gap-1 rounded-md z-20">
             {notificiations.map((notif) => (
                 <li key={notif.id} className="   w-full flex justify-between items-center p-1
     border-2 rounded-md
@@ -35,7 +35,7 @@ export const Notifications = () => {
     hover:border-dark-border-focus
     dark:border-dark-border-light
     dark:hover:border-dark-border-focus
-    transition-colors">
+    transition-colors ">
                     <div className="flex justify-center items-center basis-1/3">
                         <img className="rounded-full w-16 h-16" src={`/Images/profile-pics/${notif.userPic}`} alt="profile-pic" />
                     </div>
