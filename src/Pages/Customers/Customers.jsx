@@ -6,14 +6,14 @@ import React from "react";
 
 
 
-export default function Customers () {
+export default function Customers() {
 
 
 
-    return(
-        <div >
+    return (
+        <div className="bg-red-500 overflow-y-auto h-screen w-full">
             <div className="">
-                <h1 className=""></h1>
+                <p className="">اطلاهات کلی مشتری ها</p>
             </div>
             <div className="">
                 <div>
@@ -47,8 +47,25 @@ export default function Customers () {
                     </div>
                 </div>
             </div>
-            
+            <div className="main-info">
+                <div className="">
+                    <span className="title"></span>
+                    <select className="filter"></select>
+                    <button className="add user"></button>
 
+                </div>
+                <div className="">
+                    <div className="search user">
+                        <input type="search" />
+                    </div>
+                    <select className="filter user loyalty">
+
+                    </select>
+                </div>
+                <div className="users table">
+                    {/* table */}
+                </div>
+            </div>
         </div>
     )
 }
