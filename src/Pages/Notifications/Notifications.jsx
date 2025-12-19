@@ -6,11 +6,11 @@ import React from "react";
 
 
 
-export default function Users () {
+export default function Notifications () {
 
 
 
-    return(
+      return(
         <div ></div>
     )
 }

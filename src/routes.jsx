@@ -1,6 +1,6 @@
 import DashboardLayout from "./Layouts/Dashboard/DashboardLayout";
 import Orders from "./Pages/Orders/Orders";
-import Users from "./Pages/Users/Users";
+import Customers from "./Pages/Customers/Customers";
 import Roles from "./Pages/Roles/Roles";
 import Comments from "./Pages/Comments/Comments";
 import Messages from "./Pages/Messages/Messages";
@@ -10,18 +10,22 @@ import Services from "./Pages/Services/Services";
 import Settings from "./Pages/Settings/Settings";
 import Profile from "./Pages/Profile/Profile";
 import Blogs from "./Pages/Blogs/Blogs";
-import LoginPage from "./Pages/Login/LoginPage";
+import Stats from "./Pages/Stats/Stats";
+import Offers from "./Pages/Offers/Offers";
+import Notifications from "./Pages/Notifications/Notifications";
 import MainDashboard from "./Components/LayoutComponents/MainDashboard/MainDashboard";
+import LoginPage from "./Pages/Login/LoginPage"
+
 
 let routeConfig = [
 
   { path: "/login", element: <LoginPage /> },
-    {
-    path: "/",element: <DashboardLayout />,
+  {
+    path: "/", element: <DashboardLayout />,
     children: [
-      { index : true , element: <MainDashboard /> },
+      { index: true, element: <MainDashboard /> },
       { path: "orders", element: <Orders /> },
-      { path: "users", element: <Users /> },
+      { path: "customers", element: <Customers /> },
       { path: "roles", element: <Roles /> },
       { path: "comments", element: <Comments /> },
       { path: "messages", element: <Messages /> },
@@ -31,7 +35,9 @@ let routeConfig = [
       { path: "settings", element: <Settings /> },
       { path: "profile", element: <Profile /> },
       { path: "blogs", element: <Blogs /> },
-
+      { path: "offers", element: <Offers /> },
+      { path: "notifications", element: <Notifications /> },
+      { path: "stats", element: <Stats /> },
     ],
   },
 

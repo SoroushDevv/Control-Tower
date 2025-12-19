@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import Input from "../../UI/Input/Input"
 import { useSearch } from "../../../Contexts/SearchContext"
@@ -49,9 +50,9 @@ export default function Login() {
                   <div className="w-full flex basis-4/6 justify-center items-center py-2">
                     <Notifications />
                   </div>
-                  <div className="w-full flex basis-1/6 justify-center items-center py-2">
+                  <Link to={"/notifications"} className="w-full flex basis-1/6 justify-center items-center py-2">
                     <button className="px-3 py-2 border-2 border-light-border-light dark:border-dark-border-light dark:hover:border-dark-border-focus rounded-md text-light-text-primarySoft dark:text-dark-text-primarySoft">همه پیام ها</button>
-                  </div>
+                  </Link>
                 </div>
               )}
 
