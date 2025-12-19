@@ -22,10 +22,6 @@ module.exports = {
         'bell-shake': 'bell-shake 1.2s ease-in-out infinite',
       },
       colors: {
-        /* ---------------------------------------------------
-           🎨 CONTROL TOWER DESIGN SYSTEM — ADVANCED COLOR SET
-           شامل حالت‌های کامل DARK و LIGHT + نسخه‌های Tint/Soft/Faint
-        ----------------------------------------------------*/
 
         /* 🌑 DARK MODE — نسخه مخصوص محیط‌های تیره */
         dark: {
@@ -67,10 +63,11 @@ module.exports = {
           -----------------------*/
           primary: {
             DEFAULT: "#2F81F7",         // رنگ اصلی برند
+            fill: "#2F81F7",            // برای آیکون‌ها و SVG
+            stroke: "#2F81F7",          // برای خطوط دور SVG
             hover: "#4B94FF",           // حالت هاور
             active: "#1F6FE3",          // حالت Active
             subtle: "#1A2A3F",          // پس‌زمینه بسیار ملایم برای کامپوننت‌ها
-
             soft: "#2F81F733",          // نسخه بسیار کم‌رنگ (Soft)
             faint: "#2F81F714",         // نسخه خیلی کمرنگ (Faint)
             tint: "#7AB2FF",            // نسخه روشن‌تر (Tint)
@@ -81,10 +78,11 @@ module.exports = {
           -----------------------*/
           accent: {
             DEFAULT: "#14F1D9",         // Accent اصلی
+            fill: "#14F1D9",            // پر کردن آیکون‌ها
+            stroke: "#14F1D9",          // خطوط دور آیکون
             hover: "#3FF6E4",
             active: "#0CCBB5",
             subtle: "#0CCBB520",
-
             soft: "#14F1D933",
             faint: "#14F1D914",
             tint: "#63FFE9",
@@ -95,20 +93,46 @@ module.exports = {
           -----------------------*/
           state: {
             success: "#21F38A",
+            successFill: "#21F38A",      // پر کردن آیکون موفقیت
+            successStroke: "#21F38A",    // خط دور آیکون موفقیت
             successSoft: "#21F38A33",
             successFaint: "#21F38A14",
 
             warning: "#FFC857",
+            warningFill: "#FFC857",
+            warningStroke: "#FFC857",
             warningSoft: "#FFC85733",
             warningFaint: "#FFC85714",
 
             danger: "#F85149",
+            dangerFill: "#F85149",
+            dangerStroke: "#F85149",
             dangerSoft: "#F8514933",
             dangerFaint: "#F8514914",
 
             info: "#3ABEF9",
+            infoFill: "#3ABEF9",
+            infoStroke: "#3ABEF9",
             infoSoft: "#3ABEF933",
             infoFaint: "#3ABEF914",
+          },
+
+          /* ----------------------
+             🖌 ICON COLORS — استفاده آسان برای SVG / آیکون‌ها
+          -----------------------*/
+          icon: {
+            primaryFill: "#2F81F7",
+            primaryStroke: "#2F81F7",
+            accentFill: "#14F1D9",
+            accentStroke: "#14F1D9",
+            successFill: "#21F38A",
+            successStroke: "#21F38A",
+            warningFill: "#FFC857",
+            warningStroke: "#FFC857",
+            dangerFill: "#F85149",
+            dangerStroke: "#F85149",
+            infoFill: "#3ABEF9",
+            infoStroke: "#3ABEF9",
           },
         },
 
@@ -152,10 +176,11 @@ module.exports = {
           -----------------------*/
           primary: {
             DEFAULT: "#1F6FEB",
+            fill: "#1F6FEB",
+            stroke: "#1F6FEB",
             hover: "#3C82F6",
             active: "#1554C9",
             subtle: "#E7F0FF",
-
             soft: "#1F6FEB33",
             faint: "#1F6FEB14",
             tint: "#7AB0FF",
@@ -166,10 +191,11 @@ module.exports = {
           -----------------------*/
           accent: {
             DEFAULT: "#14D8C8",
+            fill: "#14D8C8",
+            stroke: "#14D8C8",
             hover: "#26E4D6",
             active: "#0CB6A7",
             subtle: "#D6FFFA",
-
             soft: "#14D8C833",
             faint: "#14D8C814",
             tint: "#60FFF5",
@@ -180,20 +206,46 @@ module.exports = {
           -----------------------*/
           state: {
             success: "#1CBF6A",
+            successFill: "#1CBF6A",
+            successStroke: "#1CBF6A",
             successSoft: "#1CBF6A33",
             successFaint: "#1CBF6A14",
 
             warning: "#E7A73C",
+            warningFill: "#E7A73C",
+            warningStroke: "#E7A73C",
             warningSoft: "#E7A73C33",
             warningFaint: "#E7A73C14",
 
             danger: "#D93025",
+            dangerFill: "#D93025",
+            dangerStroke: "#D93025",
             dangerSoft: "#D9302533",
             dangerFaint: "#D9302514",
 
             info: "#2FA6E9",
+            infoFill: "#2FA6E9",
+            infoStroke: "#2FA6E9",
             infoSoft: "#2FA6E933",
             infoFaint: "#2FA6E914",
+          },
+
+          /* ----------------------
+             🖌 ICON COLORS — استفاده آسان برای SVG / آیکون‌ها
+          -----------------------*/
+          icon: {
+            primaryFill: "#1F6FEB",
+            primaryStroke: "#1F6FEB",
+            accentFill: "#14D8C8",
+            accentStroke: "#14D8C8",
+            successFill: "#1CBF6A",
+            successStroke: "#1CBF6A",
+            warningFill: "#E7A73C",
+            warningStroke: "#E7A73C",
+            dangerFill: "#D93025",
+            dangerStroke: "#D93025",
+            infoFill: "#2FA6E9",
+            infoStroke: "#2FA6E9",
           },
         },
       },
@@ -236,6 +288,5 @@ module.exports = {
   plugins: [
     require("tailwind-scrollbar")({ nocompatible: true }),
     require('tailwind-scrollbar-hide'),
-
   ],
 };
