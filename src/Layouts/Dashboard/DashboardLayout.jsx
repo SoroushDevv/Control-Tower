@@ -16,7 +16,7 @@ export default function DashboardLayout() {
        <Navbar />
         <main className="flex-1 bg-gray-50 overflow-y-auto no-scrollbar p-4">
           <Outlet />
-          <div className="h-20 shrink-0 w-full" />
+          <div className="h-20 shrink-0 w-full" ></div>
         </main>
       </div>
     </div>

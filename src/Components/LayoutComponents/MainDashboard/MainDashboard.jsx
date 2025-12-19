@@ -7,7 +7,7 @@ import RecentOrdersTable from "./../../UI/Table/RecentOrdersTable"
 import RoundedPieChart from "../../Charts/RoundedPieChart"
 import TargetRadialChart from "../../Charts/TargetRadialChart"
 import MultiRadialChart from "../../Charts/MultiRadialChart"
-import CategoryRadarChart from "../../Charts/RadarChart"
+import MainRadarChart from "../../Charts/RadarChart"
 
 
 export const MainDashboard = () => {
@@ -17,13 +17,9 @@ export const MainDashboard = () => {
 
     return (
      <div className="w-full bg-light-bg-surface overflow-hidden flex flex-col">
-    {/* والد اصلی را flex-1 و overflow-y-auto می‌کنیم. 
-        این کار باعث می‌شود محتوا در فضای باقی‌مانده اسکرول بخورد.
-    */}
     <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-hide">
         <div className="flex flex-col gap-6">
             
-            {/* Stats Cards Section */}
             <div className="w-full">
                 <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 border rounded-xl bg-light-bg-surfaceAlt p-4 dark:border-gray-800 dark:bg-dark-bg-surfaceAlt">
                     {[
@@ -45,7 +41,6 @@ export const MainDashboard = () => {
                 </ul>
             </div>
 
-            {/* Charts Section 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 border border-light-border rounded-xl bg-light-bg-surfaceAlt p-4 dark:bg-dark-bg-surfaceAlt">
                 <div className="w-full">
                     <SalesLineChart />
@@ -59,11 +54,11 @@ export const MainDashboard = () => {
                 <RecentOrdersTable />
             </div>
           
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full border-light-border rounded-xl bg-light-bg-surfaceAlt p-4 dark:bg-dark-bg-surfaceAlt h-[800px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full border-light-border rounded-xl bg-light-bg-surfaceAlt p-4 dark:bg-dark-bg-surfaceAlt h-fit">
             <RoundedPieChart/>
             <TargetRadialChart/>
             <MultiRadialChart/>
-            <CategoryRadarChart/>
+            <MainRadarChart/>
             </div>
         </div>
     </div>
