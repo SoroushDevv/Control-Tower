@@ -19,6 +19,7 @@ const Tooltip = ({ content, children }) => {
       delay={0}
       hideDelay={0}
       offset={[0,30]}
+      className="hover:text-light-text-primary hover:dark:text-dark-text-primary"
     >
       {children}
     </Tippy>

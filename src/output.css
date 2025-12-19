@@ -2683,6 +2683,20 @@ video {
   background-color: rgb(255 255 255 / 0.1);
 }
 
+.hover\:bg-light-state-danger:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 48 37 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-dark-state-danger:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 81 73 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-dark-state-danger\/10:hover {
+  background-color: rgb(248 81 73 / 0.1);
+}
+
 .hover\:text-blue-500:hover {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
@@ -2705,6 +2719,16 @@ video {
 
 .hover\:text-inherit:hover {
   color: inherit;
+}
+
+.hover\:text-light-text-primary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(31 35 40 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-dark-text-primary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(230 237 243 / var(--tw-text-opacity, 1));
 }
 
 .focus\:outline-none:focus {
@@ -2910,6 +2934,11 @@ video {
   color: rgb(250 204 21 / var(--tw-text-opacity, 1));
 }
 
+.dark\:text-dark-state-danger:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(248 81 73 / var(--tw-text-opacity, 1));
+}
+
 .dark\:shadow-\[inset_2px_2px_4px_rgba\(0\2c 0\2c 0\2c 0\.6\)\2c inset_-2px_-2px_4px_rgba\(255\2c 255\2c 255\2c 0\.05\)\]:is(.dark *) {
   --tw-shadow: inset 2px 2px 4px rgba(0,0,0,0.6),inset -2px -2px 4px rgba(255,255,255,0.05);
   --tw-shadow-colored: inset 2px 2px 4px var(--tw-shadow-color), inset -2px -2px 4px var(--tw-shadow-color);
@@ -2956,6 +2985,11 @@ video {
 
 .dark\:hover\:bg-gray-800\/20:hover:is(.dark *) {
   background-color: rgb(31 41 55 / 0.2);
+}
+
+.hover\:dark\:text-dark-text-primary:is(.dark *):hover {
+  --tw-text-opacity: 1;
+  color: rgb(230 237 243 / var(--tw-text-opacity, 1));
 }
 
 .dark\:focus\:ring-2:focus:is(.dark *) {
