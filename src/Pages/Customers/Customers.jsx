@@ -4,6 +4,7 @@ import { Users } from 'lucide-react';
 import { Banknote } from 'lucide-react';
 import { TrendingDown } from 'lucide-react';
 import { TrendingUp } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 
 
@@ -69,11 +70,25 @@ export default function Customers() {
                     </div>
                 </div>
             </div>
-            <div className="main-info ">
-                <div className="">
-                    <span className="title"></span>
-                    <select className="filter"></select>
-                    <button className="add user"></button>
+            <div className="flex flex-col divide-y-2  ">
+                <div className="w-full flex justify-between items-center py-2 px-4">
+                    <span className="ct-title">لیست فعالیت مشتری ها</span>
+                    <div className="flex gap-2">
+                        <select className="py-2 px-4 border border-dark-border dark:border-light-border rounded-md cursor-pointer dark:text-dark-text-primary dark:bg-dark-bg-surface">
+
+                            <option className="rounded-md dark:text-dark-text-primary dark:bg-dark-bg-surface cursor-pointer" value="فیلتر" defaultValue={"انتخاب فیلتر..."}>انتخاب فیلتر...</option>
+                            <option className="rounded-md dark:text-dark-text-primary dark:bg-dark-bg-surface cursor-pointer" value="جدیدترین">جدیدترین</option>
+                            <option className="rounded-md dark:text-dark-text-primary dark:bg-dark-bg-surface cursor-pointer" value="قدیمی ترین">قدیمی ترین</option>
+                            <option className="rounded-md dark:text-dark-text-primary dark:bg-dark-bg-surface cursor-pointer" value="بیشترین خرید">بیشترین خرید</option>
+                        </select>
+                        <div className="group flex items-center gap-2 overflow-hidden transition-all duration-300 ease-in-out p-3 pr-5 border border-blue-950 bg-blue-600 text-white rounded-md cursor-pointer max-w-fit">
+                            <Plus />
+                            <button className="max-w-0 opacity-0 whitespace-nowrap transition-all duration-300 ease-in-out group-hover:max-w-xs group-hover:opacity-100">
+                                اضافه کردن یوزر جدید
+                            </button>
+                        </div>
+                    </div>
+
 
                 </div>
                 <div className="">

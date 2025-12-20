@@ -54,7 +54,7 @@ function Sidebar() {
           <div className="w-full mb-8">
             <ul className="w-full flex flex-col p-1">
               {navTabs.map((tab) => (
-                <Link to={`${tab.route}`} key={tab.id} onClick={() => setActiveTabId(tab.id)} className={`flex gap-2 items-center cursor-pointer transition-all text-inherit hover:text-light-text-primary hover:text-dark-text-primary               ${isClose ? "ct-tab-close justify-center py-2" : "ct-tab"} 
+                <Link to={`${tab.route}`} key={tab.id} onClick={() => setActiveTabId(tab.id)} className={`flex gap-2 items-center cursor-pointer transition-all text-inherit hover:text-light-text-primary hover:text-dark-text-primarySoft               ${isClose ? "ct-tab-close justify-center py-2" : "ct-tab"} 
                 ${activeTabId === tab.id ? "ct-tab-active" : ""}
               `}>
                   {isClose ? (
