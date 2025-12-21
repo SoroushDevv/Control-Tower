@@ -27,7 +27,7 @@ const MOCK_ORDERS = [
     },
 ];
 
-export default function OrdersTable({ userId, darkMode = true }) {
+export default function OrdersTable({ userId}) {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate()
@@ -89,65 +89,60 @@ export default function OrdersTable({ userId, darkMode = true }) {
     };
 
     return (
-        <div className={`w-full ${darkMode ? "dark" : ""}`}>
-            <div className="w-full overflow-x-auto rounded-lg shadow bg-white dark:bg-gray-900">
-                <table className="min-w-full text-sm text-center">
-                    <thead className="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
-                        <tr>
-                            <th className="px-4 py-3 text-light-text-primary">شماره سفارش</th>
-                            <th className="px-4 py-3 text-light-text-primary">تاریخ</th>
-                            <th className="px-4 py-3 text-light-text-primary">مبلغ</th>
-                            <th className="px-4 py-3 text-light-text-primary">وضعیت</th>
-                            <th className="px-4 py-3 text-light-text-primary">پرداخت</th>
-                        </tr>
-                    </thead>
+      <div className="w-full overflow-x-auto rounded-2xl border border-dark-border dark:border-light-border dark:bg-light-bg-surface shadow-surface-dark">
+  <table className="w-full border-collapse text-sm text-right">
+    <thead>
+      <tr className="bg-dark-bg-surfaceAlt text-dark-text-secondary">
+        <th className="px-4 py-3 font-medium">شماره سفارش</th>
+        <th className="px-4 py-3 font-medium">تاریخ</th>
+        <th className="px-4 py-3 font-medium text-center">مبلغ</th>
+        <th className="px-4 py-3 font-medium">وضعیت</th>
+        <th className="px-4 py-3 font-medium">پرداخت</th>
+      </tr>
+    </thead>
 
-                    <tbody className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-                        {loading ? (
-                            <tr>
-                                <td colSpan="5" className="py-10">
-                                    <div className="flex flex-col items-center gap-3 py-4 px-6">
-                                        {/* Spinner */}
-                                        <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-
-                                        <span className="text-sm text-gray-600 dark:text-gray-400">
-                                            در حال بارگذاری سفارشات...
-                                        </span>
-                                    </div>
-                                </td>
-                            </tr>
-                        ) : orders.length === 0 ? (
-                            <tr>
-                                <td colSpan="5" className="py-12">
-                                    <div className="flex flex-col items-center gap-3 text-gray-500 dark:text-gray-400 py-4 px-6">
-                                        <span className="text-sm">
-                                            سفارشی برای این کاربر ثبت نشده است
-                                        </span>
-                                    </div>
-                                </td>
-                            </tr>
-                        ) : (
-                            orders.map((order) => (
-                                <tr
-                                    onClick={() => navigate(`#`)}
-                                    key={order.id}
-                                    className="border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer"
-                                >
-                                    <td className="px-4 py-3">{order.id}</td>
-                                    <td className="px-4 py-3">{order.date}</td>
-                                    <td className="px-4 py-3">
-                                        {order.total.toLocaleString()} تومان
-                                    </td>
-                                    <td className="px-4 py-3">
-                                        {renderStatus(order.status)}
-                                    </td>
-                                    <td className="px-4 py-3">{order.payment}</td>
-                                </tr>
-                            ))
-                        )}
-                    </tbody>
-                </table>
+    <tbody>
+      {loading ? (
+        <tr>
+          <td colSpan="5" className="py-10">
+            <div className="flex flex-col items-center gap-3 py-4 px-6">
+              <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-sm text-gray-600 dark:text-gray-400">
+                در حال بارگذاری سفارشات...
+              </span>
             </div>
-        </div>
+          </td>
+        </tr>
+      ) : orders.length === 0 ? (
+        <tr>
+          <td colSpan="5" className="py-12">
+            <div className="flex flex-col items-center gap-3 text-gray-500 dark:text-gray-400 py-4 px-6">
+              <span className="text-sm">سفارشی برای این کاربر ثبت نشده است</span>
+            </div>
+          </td>
+        </tr>
+      ) : (
+        orders.map((order) => (
+          <tr
+            key={order.id}
+            onClick={() => navigate(`#`)}
+            className="group w-full border-t border-dark-border-soft text-dark-text-primary hover:bg-dark-bg-surfaceAlt transition-colors cursor-pointer"
+          >
+            <td className="px-4 py-3 font-medium text-dark-text-secondary group-hover:text-light-accent">{order.id}</td>
+            <td className="px-4 py-3 text-dark-text-secondary">{order.date}</td>
+            <td className="px-4 py-3 text-center">
+              <span className="inline-flex min-w-[32px] justify-center rounded-md bg-dark-primary-soft text-dark-primary px-2 py-1 font-semibold">
+                {order.total.toLocaleString()} تومان
+              </span>
+            </td>
+            <td className="px-4 py-3">{renderStatus(order.status)}</td>
+            <td className="px-4 py-3 text-light-text-secondary group-hover:text-dark-text-primary dark:group-hover:text-dark-text-primary dark:text-light-text-primary">{order.payment}</td>
+          </tr>
+        ))
+      )}
+    </tbody>
+  </table>
+</div>
+
     );
 }
