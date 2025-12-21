@@ -31,7 +31,7 @@ const navigate = useNavigate()
             lastPurchase: null,
         },
            {
-            id: 2,
+            id: 4,
             name: "علی رضایی",
             city: "اصفهان",
             ordersCount: 0,
@@ -40,7 +40,7 @@ const navigate = useNavigate()
             lastPurchase: null,
         },
            {
-            id: 2,
+            id: 5,
             name: "علی رضایی",
             city: "اصفهان",
             ordersCount: 0,
@@ -49,7 +49,7 @@ const navigate = useNavigate()
             lastPurchase: null,
         },
            {
-            id: 2,
+            id: 6,
             name: "علی رضایی",
             city: "اصفهان",
             ordersCount: 0,
@@ -58,7 +58,7 @@ const navigate = useNavigate()
             lastPurchase: null,
         },
            {
-            id: 2,
+            id: 7,
             name: "علی رضایی",
             city: "اصفهان",
             ordersCount: 0,
@@ -99,7 +99,7 @@ const navigate = useNavigate()
                 
                             <tr
                                 key={user.id}
-                                onClick={() => navigate(`/customers/#`)}
+                                onClick={() => navigate(`/customers/${user.id}`)}
                                 className="group w-full border-t border-dark-border-soft text-dark-text-primary hover:bg-dark-bg-surfaceAlt transition-colors cursor-pointer"
                             >
                                     

@@ -2,59 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* =========================================
+   🔵 Utilities
+============================================ */
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
+
+/* =========================================
+   🔵 Components
+============================================ */
 @layer components {
 
   /* =========================================
      🔵 1) Tabs
   ============================================ */
-
   .ct-tab {
-    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-light-text-secondary dark:text-dark-text-secondary ;
-  }
-
-  .ct-tab-close {
-    @apply rounded-lg text-sm font-medium transition-all duration-200 text-light-text-secondary dark:text-dark-text-secondary;
+    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
+           text-light-text-secondary dark:text-dark-text-secondary
+           cursor-pointer;
   }
 
   .ct-tab:hover {
-    @apply border-light-primary bg-light-bg-surfaceAlt dark:bg-dark-bg-surface cursor-pointer;
+    @apply px-4 py-2 rounded-lg text-sm font-medium
+           text-light-text-inverted dark:text-dark-text-inverted
+           bg-light-primary-hover dark:bg-dark-primary-hover
+            cursor-pointer
+  }
+
+  .ct-tab:active {
+    @apply scale-[0.97];
+  }
+
+  .ct-tab:focus {
+    @apply outline-none border-light-border-focus shadow-sm
+           dark:border-dark-border-focus;
+  }
+
+  .ct-tab-close {
+    @apply rounded-lg text-sm font-medium transition-all duration-200
+           text-light-text-secondary dark:text-dark-text-secondary
+           cursor-pointer;
   }
 
   .ct-tab-close:hover {
-    @apply bg-light-bg-surfaceAlt dark:bg-dark-bg-surfaceAlt cursor-pointer;
+    @apply bg-light-bg-surfaceAlt text-light-text-primary
+           dark:bg-dark-bg-surfaceAlt dark:text-dark-text-primary;
+  }
+
+  .ct-tab-close:active {
+    @apply scale-[0.97];
+  }
+
+  .ct-tab-close:focus {
+    @apply outline-none border-light-border-focus shadow-sm
+           dark:border-dark-border-focus;
   }
 
   .ct-tab-active {
-    @apply px-4 py-2 rounded-lg text-sm font-medium text-light-text-inverted dark:text-dark-text-inverted bg-primary-active-light dark:bg-primary-active-dark shadow-surface-light dark:shadow-surface-dark cursor-pointer;
+    @apply px-4 py-2 rounded-lg text-sm font-medium
+           text-light-text-inverted dark:text-dark-text-inverted
+           bg-light-primary-active dark:bg-dark-primary-active
+           shadow-primary-glow cursor-pointer;
   }
 
   .ct-tab-close-active {
-    @apply py-2 rounded-lg text-sm font-medium text-light-text-inverted dark:text-dark-text-inverted bg-primary-active-light dark:bg-primary-active-dark shadow-surface-light dark:shadow-surface-dark cursor-pointer;
-
+    @apply py-2 rounded-lg text-sm font-medium
+           text-light-text-inverted dark:text-dark-text-inverted
+           bg-light-primary-active dark:bg-dark-primary-active
+           shadow-primary-glow cursor-pointer;
   }
 
   .ct-tab-disabled {
     @apply opacity-50 cursor-not-allowed pointer-events-none;
   }
 
-
   /* =========================================
      🔵 2) Input
   ============================================ */
-
   .ct-input {
-    @apply w-full px-3 py-2 rounded-md bg-light-bg-surface dark:bg-dark-bg-surface border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary transition-all focus:outline-none;
+    @apply w-full px-3 py-2 rounded-md
+           bg-light-bg-surface dark:bg-dark-bg-surface
+           border border-light-border dark:border-dark-border
+           text-light-text-primary dark:text-dark-text-primary
+           transition-all;
   }
 
   .ct-input::placeholder {
@@ -62,33 +100,41 @@
   }
 
   .ct-input:focus {
-    @apply border-light-border-focus dark:border-dark-border-focus shadow-sm;
+    @apply outline-none border-light-border-focus shadow-sm
+           dark:border-dark-border-focus;
+  }
+
+  .ct-input:hover {
+    @apply border-light-border dark:border-dark-border;
+  }
+
+  .ct-input:active {
+    @apply scale-[0.97];
   }
 
   .ct-input:disabled {
-    @apply bg-light-bg-surfaceAlt dark:bg-dark-bg-surfaceAlt text-light-text-muted dark:text-dark-text-muted cursor-not-allowed opacity-60;
+    @apply bg-light-bg-surfaceAlt dark:bg-dark-bg-surfaceAlt
+           text-light-text-muted dark:text-dark-text-muted
+           cursor-not-allowed opacity-60;
   }
-
 
   /* =========================================
      🔵 3) Buttons – Base
   ============================================ */
-
   .ct-btn {
-    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-all duration-200;
+    @apply inline-flex items-center justify-center
+           px-4 py-2 rounded-md font-medium
+           transition-all duration-200;
   }
 
   .ct-btn:disabled {
     @apply opacity-50 cursor-not-allowed pointer-events-none;
   }
 
-
-  /* =========================================
-     🔵 4) Button – Primary
-  ============================================ */
-
+  /* Primary Button */
   .ct-btn-primary {
-    @apply text-light-text-inverted dark:text-dark-text-inverted bg-primary-active-light dark:bg-primary-active-dark;
+    @apply text-light-text-inverted dark:text-dark-text-inverted
+           bg-light-primary-active dark:bg-dark-primary-active;
   }
 
   .ct-btn-primary:hover {
@@ -99,13 +145,15 @@
     @apply scale-[0.97];
   }
 
+  .ct-btn-primary:focus {
+    @apply outline-none shadow-sm;
+  }
 
-  /* =========================================
-     🔵 5) Button – Secondary
-  ============================================ */
-
+  /* Secondary Button */
   .ct-btn-secondary {
-    @apply bg-light-bg-surfaceAlt dark:bg-dark-bg-surfaceAlt text-light-text-primary dark:text-dark-text-primary border border-light-border dark:border-dark-border;
+    @apply bg-light-bg-surfaceAlt dark:bg-dark-bg-surfaceAlt
+           text-light-text-primary dark:text-dark-text-primary
+           border border-light-border dark:border-dark-border;
   }
 
   .ct-btn-secondary:hover {
@@ -116,39 +164,45 @@
     @apply scale-[0.97];
   }
 
+  .ct-btn-secondary:focus {
+    @apply outline-none shadow-sm;
+  }
 
   /* =========================================
      🔵 6) Cards
   ============================================ */
-
   .ct-card {
-    @apply p-4 rounded-xl bg-light-bg-surface dark:bg-dark-bg-surface border border-light-border dark:border-dark-border transition-all;
+    @apply p-4 rounded-xl
+           bg-light-bg-surface dark:bg-dark-bg-surface
+           border border-light-border dark:border-dark-border
+           transition-all;
   }
 
   .ct-card-hover:hover {
-    @apply shadow-surface-light dark:shadow-surface-dark;
+    @apply shadow-primary-glow;
   }
-
 
   /* =========================================
      🔵 7) Titles
   ============================================ */
-
   .ct-title {
     @apply text-lg font-semibold text-light-text-primary dark:text-dark-text-primary;
   }
 
   .ct-subtitle {
-    @apply text-sm text-light-text-secondary dark:text-dark-text-secondary;
+    @apply text-sm text-light-text-primary dark:text-dark-text-secondary;
   }
-
 
   /* =========================================
      🔵 8) Animated Brand Tab
   ============================================ */
-
   .ct-tab-brand {
-    @apply flex gap-2 px-4 py-2 rounded-lg font-medium text-light-text-inverted dark:text-dark-text-inverted bg-primary-active-light dark:bg-primary-active-dark bg-[length:200%_200%] shadow-surface-light dark:shadow-surface-dark transition-all duration-200;
+    @apply flex gap-2 px-4 py-2 rounded-lg font-medium
+           text-light-text-inverted dark:text-dark-text-inverted
+           bg-light-primary-active dark:bg-dark-primary-active
+           bg-[length:200%_200%]
+           shadow-primary-glow
+           transition-all duration-200;
     animation: ct-tab-glow 4s ease infinite;
   }
 
@@ -160,23 +214,18 @@
     @apply scale-[0.97];
   }
 
+  .ct-tab-brand:focus {
+    @apply outline-none shadow-sm;
+  }
+
   .ct-tab-brand.ct-tab-disabled {
     @apply opacity-50 pointer-events-none;
   }
 
-
   @keyframes ct-tab-glow {
-    0% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
 }
