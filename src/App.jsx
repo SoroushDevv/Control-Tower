@@ -2,6 +2,7 @@ import { Outlet, useRoutes } from 'react-router-dom'
 import routeConfig from './routes'
 import './App.css'
 import "./output.css"
+import 'animate.css';
 
 function App() {
   const element = useRoutes(routeConfig)

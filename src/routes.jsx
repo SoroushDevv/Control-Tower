@@ -15,7 +15,7 @@ import Offers from "./Pages/Offers/Offers";
 import Notifications from "./Pages/Notifications/Notifications";
 import MainDashboard from "./Components/LayoutComponents/MainDashboard/MainDashboard";
 import LoginPage from "./Pages/Login/LoginPage"
-
+import CustomerDetails from "./Pages/Customers/CustomerDetails/CustomerDetails"
 
 let routeConfig = [
 
@@ -25,7 +25,8 @@ let routeConfig = [
     children: [
       { index: true, element: <MainDashboard /> },
       { path: "orders", element: <Orders /> },
-      { path: "customers", element: <Customers /> },
+      { path: "customers", element: <Customers />},
+      { path: "customers/:userId", element: <CustomerDetails/>},
       { path: "roles", element: <Roles /> },
       { path: "comments", element: <Comments /> },
       { path: "messages", element: <Messages /> },
