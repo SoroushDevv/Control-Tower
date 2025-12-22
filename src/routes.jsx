@@ -16,6 +16,8 @@ import Notifications from "./Pages/Notifications/Notifications";
 import MainDashboard from "./Components/LayoutComponents/MainDashboard/MainDashboard";
 import LoginPage from "./Pages/Login/LoginPage"
 import CustomerDetails from "./Pages/Customers/CustomerDetails/CustomerDetails"
+import ProductDetails from "./Pages/ProductDetails/ProductDetails"
+
 
 let routeConfig = [
 
@@ -27,6 +29,7 @@ let routeConfig = [
       { path: "orders", element: <Orders /> },
       { path: "customers", element: <Customers />},
       { path: "customers/:userId", element: <CustomerDetails/>},
+      {path:"products/:productId", element:<ProductDetails/>},
       { path: "roles", element: <Roles /> },
       { path: "comments", element: <Comments /> },
       { path: "messages", element: <Messages /> },

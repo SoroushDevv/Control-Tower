@@ -26,7 +26,10 @@ const CustomerDetails = () => {
             <div className="w-full flex justify-between items-start p-2 dark:bg-dark-bg-surface dark:text-light-bg-base">
                 <div className="w-full overflow-hidden overflow-y-auto scrollbar-hide">
                     <div className="w-full flex justify-start items-center gap-2 py-2 px-4 cursor-pointer">
-                        <MoveRight onClick={() => goBack()} />
+                        <div className="transition-all duration-200 ease-in-out hover:translate-x-1 ">
+
+                            <MoveRight onClick={() => goBack()}/>
+                        </div>
                         <span>کاربران</span>
                     </div>
                     <div className="w-full flex justify-start items-center gap-2 py-2 px-4">
