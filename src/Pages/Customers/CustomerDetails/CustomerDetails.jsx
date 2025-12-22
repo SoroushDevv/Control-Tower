@@ -8,7 +8,7 @@ import Badge from "./../../../Components/UI/Badge/Badge"
 import { UserRound } from 'lucide-react';
 import { Pencil } from 'lucide-react';
 import { ShoppingCart } from 'lucide-react';
-import UserOrdersTable from "../../../Components/UI/Table/UserOrders";
+import UserOrdersTable from "../../../Components/UI/Table/UserOrdersTable";
 
 
 

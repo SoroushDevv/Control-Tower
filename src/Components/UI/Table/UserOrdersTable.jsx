@@ -27,7 +27,7 @@ const MOCK_ORDERS = [
     },
 ];
 
-export default function OrdersTable({ userId}) {
+export default function UserOrdersTable({ userId}) {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate()
