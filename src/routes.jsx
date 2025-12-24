@@ -1,10 +1,9 @@
 import DashboardLayout from "./Layouts/Dashboard/DashboardLayout";
-import Orders from "./Pages/Orders/Orders";
 import Customers from "./Pages/Customers/Customers";
 import Roles from "./Pages/Roles/Roles";
-import Comments from "./Pages/Comments/Comments";
-import Messages from "./Pages/Messages/Messages";
-import Tickets from "./Pages/Messages/Tickets";
+import Comments from "./Pages/Communications/Comments/Comments";
+import Tickets from "./Pages/Communications/Tickets/Tickets";
+import Notifications from "./Pages/Communications/Notifications/Notifications";
 import Products from "./Pages/Products/Products";
 import Services from "./Pages/Services/Services";
 import Settings from "./Pages/Settings/Settings";
@@ -12,11 +11,13 @@ import Profile from "./Pages/Profile/Profile";
 import Blogs from "./Pages/Blogs/Blogs";
 import Stats from "./Pages/Stats/Stats";
 import Offers from "./Pages/Offers/Offers";
-import Notifications from "./Pages/Notifications/Notifications";
 import MainDashboard from "./Components/LayoutComponents/MainDashboard/MainDashboard";
 import LoginPage from "./Pages/Login/LoginPage"
 import CustomerDetails from "./Pages/Customers/CustomerDetails/CustomerDetails"
 import ProductDetails from "./Pages/ProductDetails/ProductDetails"
+import Communications from "./Pages/Communications/Communications";
+import Orders from "./Pages/Orders/Orders";
+
 
 
 let routeConfig = [
@@ -30,9 +31,10 @@ let routeConfig = [
       { path: "customers", element: <Customers />},
       { path: "customers/:userId", element: <CustomerDetails/>},
       {path:"products/:productId", element:<ProductDetails/>},
+      {path:"communications" , element:<Communications />},
       { path: "roles", element: <Roles /> },
       { path: "comments", element: <Comments /> },
-      { path: "messages", element: <Messages /> },
+      { path: "notifications", element: <Notifications /> },
       { path: "tickets", element: <Tickets /> },
       { path: "products", element: <Products /> },
       { path: "services", element: <Services /> },

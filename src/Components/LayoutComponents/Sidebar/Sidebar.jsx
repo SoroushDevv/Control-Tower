@@ -16,9 +16,9 @@ function Sidebar() {
 
   const navTabs = [
     { id: 1, label: "داشبورد", icon: <LayoutDashboard className="outline-none" />, route: "/" },
-    { id: 2, label: "مشتری ها", icon: <Users className="outline-none" />, route: "/customers" },
-    { id: 3, label: "محصولات", icon: <ShoppingCart className="outline-none" />, route: "/products" },
-    { id: 4, label: "اعلان ها", icon: <Bell className="outline-none" />, route: "notifications" },
+    { id: 2, label: "مشتری ها", icon: <Users className="outline-none" />, route: "customers" },
+    { id: 3, label: "محصولات", icon: <ShoppingCart className="outline-none" />, route: "products" },
+    { id: 4, label: "اعلان ها", icon: <Bell className="outline-none" />, route: "communications" },
     { id: 5, label: "سفارشات", icon: <CirclePile className="outline-none" />, route: "orders" },
     { id: 6, label: "تخفیف ها", icon: <BadgePercent className="outline-none" />, route: "offers" },
     { id: 7, label: "امار ها", icon: <ChartNoAxesCombined className="outline-none" />, route: "stats" },
