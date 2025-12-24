@@ -68,17 +68,17 @@ export default function ProductGallery({ images = [], initialIndex = 0 }) {
             type="button"
             onClick={() => setActiveIndex(index)}
             className={cn(
-              "relative h-16 w-16 overflow-hidden rounded-lg border transition-all duration-300 ease-in-out",
+              "relative h-16 w-16 overflow-hidden rounded-lg transition-all duration-300 ease-in-out mx-2",
               index === activeIndex
                 ? "border-primary ring-2 ring-primary/30"
                 : "border-muted hover:border-foreground/40",
-              index !== activeIndex ? "opacity-50 blur-[1px]" : "opacity-100 blur-0"
+              index !== activeIndex ? "opacity-70 blur-[1px]" : "opacity-100 blur-0 focus:ring-emerald-500"
             )}
           >
             <img
               src={img}
               alt={`thumbnail-${index}`}
-              className="h-full w-full object-cover transition-all duration-300 ease-in-out"
+              className="h-full w-full object-cover transition-all duration-300 ease-in-out "
               loading="lazy"
             />
           </button>
