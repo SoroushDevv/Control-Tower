@@ -1,0 +1,89 @@
+import React, { useEffect, useState } from "react";
+import ProductGallery from "../ProductDetails/Product/ProductGallery";
+import { ArrowDownToLine } from 'lucide-react';
+import OrderProductsTable from "@/Components/UI/Table/OrderProductsTable";
+import OrderPriceSummary from "./OrderPriceSummary";
+
+
+const OrderDetails = () => {
+
+    const orders = [
+        {
+            id: "PR-101",
+            name: "هودی مردانه",
+            image: "/Images/products/hoodi.jpg",
+            color: "مشکی",
+            size: "L",
+            price: 850000,
+            quantity: 2,
+            rating: 4.5,
+        },
+        {
+            id: "PR-102",
+            name: "کفش اسپرت",
+            image: "/Images/products/shoe.jpg",
+            color: "سفید",
+            size: "42",
+            price: 2100000,
+            quantity: 1,
+            rating: 4.8,
+        },
+        {
+            id: "PR-103",
+            name: "تیشرت نخی",
+            image: "/Images/products/tshirt.jpg",
+            color: "آبی",
+            size: "M",
+            price: 420000,
+            quantity: 3,
+            rating: 4.2,
+        },
+    ];
+
+
+
+
+
+    return (
+        <div className=" w-full h-full grid-cols-1 lg:grid-cols-2">
+            <div className="col-span-1 lg:col-span-1 ">
+                <div className="grid grid-cols-1 grid-rows-4">
+                    <div className="col-span-1"></div>
+                    <div className="col-span-1"></div>
+                    <div className="col-span-1"></div>
+                    <div className="col-span-1"></div>
+                </div>
+            </div>
+            <div className="col-span-1 lg:col-span-3">
+                <div className="grid grid-cols-1 grid-rows-2">
+                    <div className="col-span-1 flex flex-col gap-3 border border-light-border rounded-md">
+                        <div className="w-full flex justify-between items-center py-3 px-4 border border-light-border-light">
+                            <span className="text-lg font-bold">سفارش #ORD-7241</span>
+                            <button className="flex justify-center items-center gap-2 py-1 px-3 bg-light-primary hover:bg-dark-primary-subtle  rounded-sm text-light-bg-base transition-all duration-200 ease-in-out">
+                                <span className="">فاکتور</span>
+                                <ArrowDownToLine />
+                            </button>
+                        </div>
+                        <div className="py-3 px-4">
+                            <OrderProductsTable />
+                        </div>
+                        <div className="w-fit py-3 px-4 border border-t-2 border-dotted">
+                            <OrderPriceSummary
+                                items={orders}
+                                discountPercent={15}
+                                discountCode="VELZON15"
+                                shippingCost={65}
+                                taxPercent={14}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-span-1"></div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+
+export default OrderDetails;

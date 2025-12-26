@@ -1,12 +1,12 @@
 import React from "react";
 import { div } from "motion/react-client";
-import ProductGallery from "@/Components/LayoutComponents/ProductDetailsComponent/Product/ProductGallery";
+import ProductGallery from "@/Components/LayoutComponents/ProductDetails/Product/ProductGallery";
 import Rating from "@/Components/UI/Rating/Rating";
-import ColorCircles from "@/Components/LayoutComponents/ProductDetailsComponent/Product/ColorCircles";
+import ColorCircles from "@/Components/LayoutComponents/ProductDetails/Product/ColorCircles";
 import Button from "@/Components/UI/Button/Button";
 import ProductReviews from "./Product/ProductReviews";
 
-const ProductDetailsComponent = () => {
+const ProductDetails = () => {
 
 
 
@@ -73,4 +73,4 @@ const ProductDetailsComponent = () => {
 
 }
 
-export default ProductDetailsComponent;
+export default ProductDetails;

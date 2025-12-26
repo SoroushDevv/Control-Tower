@@ -14,11 +14,10 @@ import Offers from "./Pages/Offers/Offers";
 import MainDashboard from "./Components/LayoutComponents/MainDashboard/MainDashboard";
 import LoginPage from "./Pages/Login/LoginPage"
 import CustomerDetails from "./Pages/Customers/CustomerDetails/CustomerDetails"
-import ProductDetails from "./Pages/ProductDetails/ProductDetails"
+import ProductDetails from "./Pages/ProductDetailsPage/ProductDetails"
 import Communications from "./Pages/Communications/Communications";
 import Orders from "./Pages/Orders/Orders";
-
-
+import OrderDetails from "./Components/LayoutComponents/OrderDetails/OrderDetails";
 
 let routeConfig = [
 
@@ -31,6 +30,7 @@ let routeConfig = [
       { path: "customers", element: <Customers />},
       { path: "customers/:userId", element: <CustomerDetails/>},
       {path:"products/:productId", element:<ProductDetails/>},
+      {path:"orders/:orderId", element:<OrderDetails/>},
       {path:"communications" , element:<Communications />},
       { path: "roles", element: <Roles /> },
       { path: "comments", element: <Comments /> },

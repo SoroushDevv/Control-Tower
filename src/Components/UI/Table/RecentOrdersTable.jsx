@@ -1,14 +1,18 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { MoreVertical, ExternalLink, CircleDot } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const RecentOrdersTable = () => {
-  // داده‌های تستی برای نمایش
+  const navigate = useNavigate()
+  const [isOpenActions,setIsOpenActions] =useState()
   const orders = [
-    { id: '#ORD-7241', customer: 'سروش مرادی', product: 'لپ‌تاپ مک‌بوک پرو', amount: '۸۵,۰۰۰,۰۰۰', status: 'موفق', date: '۱۴۰۲/۰۹/۲۸' },
-    { id: '#ORD-5122', customer: 'علی محمدی', product: 'آیفون ۱۵ پرو', amount: '۶۲,۰۰۰,۰۰۰', status: 'در انتظار', date: '۱۴۰۲/۰۹/۲۷' },
-    { id: '#ORD-3120', customer: 'سارا احمدی', product: 'هدفون سونی', amount: '۱۵,۵۰۰,۰۰۰', status: 'لغو شده', date: '۱۴۰۲/۰۹/۲۷' },
-    { id: '#ORD-1102', customer: 'رضا علوی', product: 'ساعت هوشمند', amount: '۱۲,۲۰۰,۰۰۰', status: 'موفق', date: '۱۴۰۲/۰۹/۲۶' },
-    { id: '#ORD-0982', customer: 'مریم رجبی', product: 'کیبورد مکانیکی', amount: '۴,۸۰۰,۰۰۰', status: 'موفق', date: '۱۴۰۲/۰۹/۲۵' },
+    { id: 'ORD-7241', customer: 'سروش مرادی', product: 'لپ‌تاپ مک‌بوک پرو', amount: '۸۵,۰۰۰,۰۰۰', status: 'موفق', date: '۱۴۰۲/۰۹/۲۸' },
+    { id: 'ORD-5122', customer: 'علی محمدی', product: 'آیفون ۱۵ پرو', amount: '۶۲,۰۰۰,۰۰۰', status: 'در انتظار', date: '۱۴۰۲/۰۹/۲۷' },
+    { id: 'ORD-3120', customer: 'سارا احمدی', product: 'هدفون سونی', amount: '۱۵,۵۰۰,۰۰۰', status: 'لغو شده', date: '۱۴۰۲/۰۹/۲۷' },
+    { id: 'ORD-1102', customer: 'رضا علوی', product: 'ساعت هوشمند', amount: '۱۲,۲۰۰,۰۰۰', status: 'موفق', date: '۱۴۰۲/۰۹/۲۶' },
+    { id: 'ORD-0982', customer: 'مریم رجبی', product: 'کیبورد مکانیکی', amount: '۴,۸۰۰,۰۰۰', status: 'موفق', date: '۱۴۰۲/۰۹/۲۵' },
   ];
 
   const getStatusStyle = (status) => {
@@ -51,8 +55,9 @@ const RecentOrdersTable = () => {
           <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
             {orders.map((order, idx) => (
               <tr 
-                key={idx} 
-                className="hover:bg-gray-50/50 dark:hover:bg-gray-800/20 transition-colors group"
+              key={idx} 
+              className="hover:bg-gray-50/50 dark:hover:bg-gray-800/20 transition-colors group cursor-pointer"
+              onClick = {() => navigate(`/orders/${order.id}`)}
               >
                 <td className="px-6 py-4 text-sm font-mono text-gray-500 dark:text-gray-400">
                   {order.id}
@@ -75,6 +80,10 @@ const RecentOrdersTable = () => {
                   <button className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors">
                     <MoreVertical size={16} className="text-gray-400" />
                   </button>
+                  <div>
+                    <button></button>
+                    <button></button>
+                  </div>
                 </td>
               </tr>
             ))}

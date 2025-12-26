@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { div } from "motion/react-client";
 import { MoveRight } from 'lucide-react';
-import ProductDetailsComponent from "../../Components/LayoutComponents/ProductDetailsComponent/ProductDetailsComponent";
+import ProductDetails from "../../Components/LayoutComponents/ProductDetails/ProductDetails";
 
 const productDetails = () => {
     const navigate = useNavigate()
@@ -27,7 +27,7 @@ const productDetails = () => {
                 </div>
                 <span>محصولات</span>
             </div>
-            <ProductDetailsComponent />
+            <ProductDetails />
         </div>
     )
 
