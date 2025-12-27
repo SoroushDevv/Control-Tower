@@ -80,10 +80,6 @@ const RecentOrdersTable = () => {
                   <button className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors">
                     <MoreVertical size={16} className="text-gray-400" />
                   </button>
-                  <div>
-                    <button></button>
-                    <button></button>
-                  </div>
                 </td>
               </tr>
             ))}

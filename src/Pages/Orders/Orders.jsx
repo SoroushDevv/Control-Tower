@@ -13,7 +13,6 @@ export const Orders = () => {
                     <div className="breadcrumb text-light-text-secondary">داشبورد-سفارشات</div>
                 </div>
                 <div className="h-full overflow-hidden overflow-y-scroll scrollbar-hide">
-
                 <RecentOrdersTable />
                 </div>
             </div>   
