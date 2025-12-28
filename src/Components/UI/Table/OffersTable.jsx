@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Plus, Pencil, Trash2, Percent, Tag } from "lucide-react";
 import Modal from "../Modal/Modal";
 import { DeleteOffer } from "@/Pages/Offers/components/DeleteOffer";
-
+import EditOffer from "@/Pages/Offers/components/EditOffer";
 
 const initialOffs = [
     { id: "1", code: "SUMMER25", discountPercent: 25, usageLimit: 100, usedCount: 45, expiresAt: "2025-08-31", isActive: true },
@@ -81,8 +81,8 @@ const OffersTable = () => {
                                         </button>
                                     </td>
                                 </tr>
-                                <DeleteOffer offCode={off.code} open={isDeleteModalOpen} onOpenChange={() => setIsDeleteModalOpen(!isDeleteModalOpen)} onConfirm={() => handleDelete(off.id)}/>
- 
+                                <DeleteOffer open={isDeleteModalOpen} offCode={off.code} onOpenChange={() => setIsDeleteModalOpen(!isDeleteModalOpen)} onConfirm={() => handleDelete(off.id)}/>
+                                <EditOffer open={isEditModalOpen} onOpenChange={() => setIsEditModalOpen(false)} offer={off}/> 
                                 </>
                                 
                             ))
