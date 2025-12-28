@@ -4,8 +4,7 @@ import Input from "@/Components/UI/Input/Input";
 import Button from "@/Components/UI/Button/Button";
 
 
-
-const AddNewOffer = () => {
+const AddNewOffer = ({onClose,onSubmit}) => {
 const [isEnabled,setIsEnabled] = useState()
 
 
@@ -15,6 +14,9 @@ const [isEnabled,setIsEnabled] = useState()
 
 const toggleActiceCode = () => {
     setIsEnabled(!isEnabled)
+
+
+
 }
 
     return (
@@ -23,7 +25,7 @@ const toggleActiceCode = () => {
             <div className="w-full flex justify-start items-center ">
                 <span className="font-bold text-lg">ساخت کد تخفیف جدید</span>
             </div>
-            <div className="flex flex-col justify-start items-start">
+            <div className="w-full flex flex-col justify-start items-start">
                 <label htmlFor="code">کد تخفیف</label>
                 <Input id="code" type="text" placeholder="freedom1"/>
             </div>
@@ -47,12 +49,12 @@ const toggleActiceCode = () => {
                 <span>کد را فعال یا غیر فعال کنید</span>
                 </div>
                 <div>
-                    <Switch isEnabled={isEnabled} onToggle={toggleActiceCode}/>
+                    <Switch enabled={isEnabled} onToggle={toggleActiceCode}/>
                 </div>
             </div>
             <div className="w-full flex justify-start items-center gap-3 py-3 px-4">
                 <Button variant="primary">بساز</Button>
-                <Button variant="neutral">لغو</Button>
+                <Button variant="neutral" onClick={() => onClose()}>لغو</Button>
             </div>
 
         </div>

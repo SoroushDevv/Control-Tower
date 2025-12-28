@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Plus, Pencil, Trash2, Percent, Tag } from "lucide-react";
+import Modal from "../Modal/Modal";
+import { DeleteOffer } from "@/Pages/Offers/components/DeleteOffer";
+
 
 const initialOffs = [
     { id: "1", code: "SUMMER25", discountPercent: 25, usageLimit: 100, usedCount: 45, expiresAt: "2025-08-31", isActive: true },
@@ -11,13 +14,22 @@ const initialOffs = [
 
 const OffersTable = () => {
     const [offs, setOffs] = useState(initialOffs);
+    const [isModalOpen,setIsModalOpen] = useState(false)
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false)
 
-    const handleEdit = (off) => {};
-    const handleDelete = (id) => setOffs(prev => prev.filter(off => off.id !== id));
 
+
+    const handleDelete = (id) => {
+
+        setOffs(prev => prev.filter(off => off.id !== id));
+        setIsDeleteModalOpen(false)
+    } 
+
+
+    
     return (
         <div className="w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm overflow-hidden mt-4">
-
             <div className="overflow-x-auto no-scrollbar dark:bg-dark-bg-surface dark:text-dark-text-primary">
                 <table className="w-full text-right text-sm">
                     <thead className="bg-gray-50 dark:bg-gray-800/30 text-gray-400 dark:text-gray-300 uppercase tracking-wide text-xs">
@@ -39,7 +51,8 @@ const OffersTable = () => {
                             </tr>
                         ) : (
                             offs.map((off) => (
-                                <tr key={off.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/20 transition-colors cursor-pointer">
+                                <>
+                               <tr key={off.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/20 transition-colors cursor-pointer">
                                     <td className="px-6 py-4 font-mono font-semibold text-gray-700 dark:text-gray-200">{off.code}</td>
                                     <td className="px-6 py-4 flex items-center gap-1 text-gray-600 dark:text-gray-300">
                                         <Percent size={14} /> {off.discountPercent}%
@@ -54,21 +67,33 @@ const OffersTable = () => {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 text-right flex gap-2 justify-center">
-                                        <button onClick={() => handleEdit(off)} className="text-blue-500 hover:text-blue-700 transition-colors">
+                                        <button  className="text-blue-500 hover:text-blue-700 transition-colors" onClick={() => {
+                                            console.log("clicked")
+                                            setIsModalOpen(true)
+                                            setIsEditModalOpen(true)
+                                        }}>
                                             <Pencil size={16} />
                                         </button>
-                                        <button onClick={() => handleDelete(off.id)} className="text-red-500 hover:text-red-700 transition-colors">
+                                        <button onClick={() => {
+                                            setIsDeleteModalOpen(true)
+                                        }} className="text-red-500 hover:text-red-700 transition-colors">
                                             <Trash2 size={16} />
                                         </button>
                                     </td>
                                 </tr>
+                                <DeleteOffer offCode={off.code} open={isDeleteModalOpen} onOpenChange={() => setIsDeleteModalOpen(!isDeleteModalOpen)} onConfirm={() => handleDelete(off.id)}/>
+ 
+                                </>
+                                
                             ))
                         )}
                     </tbody>
                 </table>
             </div>
+
+          
         </div>
-    );
-};
+    )
+}
 
 export default OffersTable;

@@ -31,7 +31,7 @@ const closeModal = () => {
       <OffersTable />
  
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <AddNewOffer />
+          <AddNewOffer onClose={closeModal}/>
         </Modal>
     </div>
   )
