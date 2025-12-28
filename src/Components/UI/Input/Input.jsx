@@ -11,7 +11,6 @@ const Input = React.forwardRef(({ error, icon: Icon, className = "", ...props },
     <div className="flex flex-col justify-center w-full h-16">
       <div className="w-full relative">
         {Icon && <Icon className={`${error ? "absolute left-2 top-1/2 -translate-y-1/2 text-light-state-danger z-10" : props.value ? "absolute left-2 top-1/2 -translate-y-1/2 text-light-state-success z-10" : "absolute left-2 top-1/2 -translate-y-1/2 border-light-border-light z-10"}`} />}
-
         <input
           ref={ref}
           {...props}
@@ -20,16 +19,10 @@ const Input = React.forwardRef(({ error, icon: Icon, className = "", ...props },
       </div>
       {error?.message && (
         <div
-          className={`
-    mt-1 overflow-hidden transition-all duration-300 ease-linear
-    ${error ? "max-h-20 opacity-100" : "max-h-0 opacity-0"}
-  `}
-        >
+          className={`mt-1 overflow-hidden transition-all duration-300 ease-linear ${error ? "max-h-20 opacity-100" : "max-h-0 opacity-0"}`}>
           <p className="text-red-500 text-xs">{error?.message}</p>
         </div>
-      )
-
-      }
+      )}
 
     </div>
   )
