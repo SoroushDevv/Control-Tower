@@ -2,15 +2,20 @@ import React, { useState, useEffect } from "react"
 import Switch from "@/Components/UI/Switch/Switch"
 import Input from "@/Components/UI/Input/Input"
 import Button from "@/Components/UI/Button/Button"
+import DatePicker from "react-multi-date-picker";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
 
-const EditOffer = ({ open,offer, onOpenChange, initialData, onSubmit }) => {
+
+
+const EditOffer = ({ open, offer, onOpenChange, initialData, onSubmit }) => {
   if (!open) return null
 
   const [isEnabled, setIsEnabled] = useState(open)
-  const [code, setCode] = useState("")
-  const [percent, setPercent] = useState("")
-  const [limit, setLimit] = useState("")
-  const [expireDate, setExpireDate] = useState("")
+  const [code, setCode] = useState(offer.code)
+  const [percent, setPercent] = useState(offer.discountPercent)
+  const [limit, setLimit] = useState(offer.usageLimit)
+  const [expireDate, setExpireDate] = React.useState(null)
 
   useEffect(() => {
     if (initialData) {
@@ -35,7 +40,7 @@ const EditOffer = ({ open,offer, onOpenChange, initialData, onSubmit }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-light-bg-overlay dark:bg-dark-bg-overlay"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-light-bg-overlay dark:bg-black/10"
       onClick={() => onOpenChange(false)}
     >
       <div
@@ -49,7 +54,8 @@ const EditOffer = ({ open,offer, onOpenChange, initialData, onSubmit }) => {
 
           <div className="flex flex-col gap-2">
             <label htmlFor="code">کد تخفیف</label>
-            <Input id="code" value={offer.code} onChange={(e) => setCode(e.target.value)} />
+            <Input id="code" value={code} onChange={(e) => setCode(e.target.value)} placeholder={code ? "" : "کد تخفیف را وارد کنید"}
+              className="placeholder:text-gray-400" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
@@ -57,26 +63,40 @@ const EditOffer = ({ open,offer, onOpenChange, initialData, onSubmit }) => {
               <label>درصد تخفیف</label>
               <Input
                 type="number"
-                value={offer.discountPercent}
+                value={percent}
                 onChange={(e) => setPercent(e.target.value)}
+                placeholder={percent ? "" : "درصد تخفیف را وارد کنید"}
+                className="placeholder:text-gray-400"
               />
             </div>
             <div>
               <label>تعداد</label>
               <Input
                 type="number"
-                value={offer.usageLimit}
+                value={limit}
                 onChange={(e) => setLimit(e.target.value)}
+                placeholder={limit ? "" : "محدودیت استفاده را مشخص کنید"}
+                className="placeholder:text-gray-400"
               />
             </div>
           </div>
 
-          <div>
+          <div className="w-full flex flex-col justify-start items-start">
             <label>تاریخ انقضا</label>
-            <Input
-              type="date"
-              value={offer.expiresAt}
-              onChange={(e) => setExpireDate(e.target.value)}
+            <DatePicker
+              value={expireDate}
+              onChange={setExpireDate}
+              calendar={persian}
+              locale={persian_fa}
+              calendarPosition="bottom-right"
+              render={(value, openCalendar) => (
+                <Input
+                  value={value}
+                  onFocus={openCalendar}
+                  placeholder="تاریخ انقضا"
+                  readOnly
+                />
+              )}
             />
           </div>
 
@@ -88,7 +108,7 @@ const EditOffer = ({ open,offer, onOpenChange, initialData, onSubmit }) => {
               </span>
             </div>
 
-            
+
             <Switch enabled={isEnabled} onToggle={() => setIsEnabled(!isEnabled)} />
           </div>
 

@@ -21,7 +21,6 @@ function Sidebar() {
     { id: 4, label: "اعلان ها", icon: <Bell className="outline-none" />, route: "communications" },
     { id: 5, label: "سفارشات", icon: <CirclePile className="outline-none" />, route: "orders" },
     { id: 6, label: "تخفیف ها", icon: <BadgePercent className="outline-none" />, route: "offers" },
-    { id: 7, label: "امار ها", icon: <ChartNoAxesCombined className="outline-none" />, route: "stats" },
   ];
 
   const accountTabs = [

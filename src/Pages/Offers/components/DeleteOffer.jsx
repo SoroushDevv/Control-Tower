@@ -1,11 +1,11 @@
 import React from "react"
 
-export function DeleteOffer({ open, onOpenChange, offCode, onConfirm, children }) {
+export function DeleteOffer({ open, onOpenChange, offer, onConfirm, children }) {
   if (!open) return null
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-light-bg-overlay dark:bg-dark-bg-overlay"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-light-bg-overlay dark:bg-black/10"
       onClick={() => onOpenChange(false)}
     >
       <div
@@ -20,7 +20,7 @@ export function DeleteOffer({ open, onOpenChange, offCode, onConfirm, children }
           <span className=" flex flex-col justify-between items-start gap-4 text-sm text-light-text-secondary dark:text-dark-text-secondary">
             <span>
                از حذف کد <span className="font-mono font-semibold text-light-state-danger dark:text-dark-state-danger px-1">
-              {offCode}
+              {offer.code}
             </span>اطمینان دارید؟
             </span>
            
